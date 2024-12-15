@@ -1,20 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhbfwap526xpy"]
+[gd_scene load_steps=4 format=3 uid="uid://dhbfwap526xpy"]
 
+[ext_resource type="Script" path="res://Templates/Door.cs" id="1_hw42v"]
 [ext_resource type="Texture2D" uid="uid://dircuv7741v2s" path="res://Assets/3th Party/Legacy Fantasy - Debug Map/Debug Map - Tiles.png" id="1_pider"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m5cwq"]
-size = Vector2(8, 64)
+size = Vector2(8, 32)
 
-[node name="Door" type="Node2D"]
+[node name="Door" type="Node2D" node_paths=PackedStringArray("ON", "OFF", "Body")]
+script = ExtResource("1_hw42v")
+ON = NodePath("ON")
+OFF = NodePath("OFF")
+Body = NodePath("Body")
 
-[node name="OFF" type="Sprite2D" parent="."]
-position = Vector2(2, -32)
+[node name="ON" type="Sprite2D" parent="."]
+position = Vector2(2, -16)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_pider")
 region_enabled = true
 region_rect = Rect2(256, 144, 16, 64)
 
-[node name="ON" type="Sprite2D" parent="."]
-position = Vector2(9, -32)
+[node name="OFF" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(0.495509, 0.495509, 0.495509, 1)
+position = Vector2(9, -16)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_pider")
 region_enabled = true
 region_rect = Rect2(272, 144, 32, 64)
@@ -22,5 +31,5 @@ region_rect = Rect2(272, 144, 32, 64)
 [node name="Body" type="StaticBody2D" parent="."]
 
 [node name="Shape" type="CollisionShape2D" parent="Body"]
-position = Vector2(0, -32)
+position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_m5cwq")

@@ -21,6 +21,9 @@ public partial class StatPlugin : Node
    [Export]
    public float RechargeRate { get; set; } = 0.0f;
 
+   [Export]
+   public float CooldownRate { get; set; } = 0.0f;
+
    public bool IsEmpty
    {
       get
@@ -78,7 +81,11 @@ public partial class StatPlugin : Node
 
    public StatPlugin Tick(double delta)
    {
-      if (CurrentValue < MaxValue)
+      if (CooldownRate > 0.0f)
+      {
+         Subtract(CooldownRate * (float)delta);
+      }
+      else if (CurrentValue < MaxValue)
       {
          Add(RechargeRate * (float)delta);
       }
@@ -87,7 +94,7 @@ public partial class StatPlugin : Node
 
    public override void _Process(double delta)
    {
-      if (RechargeRate > 0.0f)
+      if (RechargeRate > 0.0f || CooldownRate > 0.0f)
       {
          Tick(delta);
       }

@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://boreadu5xkdde"]
+
+[ext_resource type="Texture2D" uid="uid://c6u65v53hqpe7" path="res://Assets/Barrel.png" id="1_71lgy"]
+[ext_resource type="Script" path="res://Templates/RechargeSpot.cs" id="1_dpb35"]
+[ext_resource type="Texture2D" uid="uid://ec2ued8i6bmc" path="res://Assets/Light.png" id="1_ntslw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i43ic"]
+radius = 48.0104
+
+[sub_resource type="Gradient" id="Gradient_b3ti0"]
+colors = PackedColorArray(1, 0.316667, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_2dfm4"]
+gradient = SubResource("Gradient_b3ti0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qnp81"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(0.4, 1, 1)
+emission_shape = 3
+emission_box_extents = Vector3(8, 1, 1)
+spread = 75.484
+angular_velocity_min = -379.8
+angular_velocity_max = 232.2
+gravity = Vector3(0, -10, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = 36.36
+scale_max = 2.0
+scale_over_velocity_max = 181.82
+color = Color(1, 0.826, 0.13, 1)
+color_ramp = SubResource("GradientTexture1D_2dfm4")
+
+[node name="RechargeSpot" type="Node2D" node_paths=PackedStringArray("Area")]
+script = ExtResource("1_dpb35")
+RechargeType = " Cold"
+Area = NodePath("Area")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -13)
+color = Color(0.96, 0.32, 0, 1)
+texture = ExtResource("1_ntslw")
+texture_scale = 0.4
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -9)
+shape = SubResource("CircleShape2D_i43ic")
+
+[node name="Barrel" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_71lgy")
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+position = Vector2(0, -13)
+amount = 24
+process_material = SubResource("ParticleProcessMaterial_qnp81")

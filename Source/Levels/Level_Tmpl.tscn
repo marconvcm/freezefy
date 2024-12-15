@@ -6,6 +6,9 @@
 
 [node name="Level" type="Node2D"]
 
+[node name="Env" type="CanvasModulate" parent="."]
+color = Color(0.487662, 0.487662, 0.487662, 1)
+
 [node name="UILayer" type="CanvasLayer" parent="."]
 
 [node name="Dialog" parent="UILayer" node_paths=PackedStringArray("gameNode") instance=ExtResource("1_rneo8")]

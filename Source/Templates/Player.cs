@@ -18,6 +18,9 @@ public partial class Player : Actor
    [Export]
    public Camera2D camera;
 
+   [Export]
+   public StatPlugin ColdPoints;
+
    public override Vector2 GetInputDirection() => IsStopped ? Vector2.Zero : InputManager.GetDirection();
 
    public override void _Ready()
