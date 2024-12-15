@@ -1,0 +1,91 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqvgux4k0ldw4"]
+
+[ext_resource type="Script" path="res://Templates/Binary.cs" id="1_2sixy"]
+[ext_resource type="Texture2D" uid="uid://dircuv7741v2s" path="res://Assets/3th Party/Legacy Fantasy - Debug Map/Debug Map - Tiles.png" id="2_rxtpc"]
+
+[sub_resource type="Animation" id="Animation_ucijd"]
+resource_name = "OFF"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [-1.5708, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_oc7xq"]
+resource_name = "ON"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0.0, -1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_a1o7l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Lever:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l8g6u"]
+_data = {
+"OFF": SubResource("Animation_ucijd"),
+"ON": SubResource("Animation_oc7xq"),
+"RESET": SubResource("Animation_a1o7l")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bus0g"]
+radius = 8.0
+
+[node name="Binary" type="Node2D" node_paths=PackedStringArray("AnimationPlayer", "ActivationArea")]
+script = ExtResource("1_2sixy")
+AnimationPlayer = NodePath("Anim")
+ActivationArea = NodePath("Area")
+
+[node name="Lever" type="Sprite2D" parent="."]
+modulate = Color(0.772951, 0.772951, 0.772951, 1)
+texture = ExtResource("2_rxtpc")
+offset = Vector2(11, -11)
+region_enabled = true
+region_rect = Rect2(394, 58, 22, 22)
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_rxtpc")
+region_enabled = true
+region_rect = Rect2(304, 32, 32, 16)
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l8g6u")
+}
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -8)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_bus0g")

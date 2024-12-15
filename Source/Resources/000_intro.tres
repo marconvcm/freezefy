@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="TextFragment" load_steps=2 format=3 uid="uid://b3ofrywmu2lap"]
+
+[ext_resource type="Script" path="res://Common/TextFragment.cs" id="1_lgdoh"]
+
+[resource]
+script = ExtResource("1_lgdoh")
+Text = "Why am I still here? The wind reminds me I’m alive, but alive for what?
+Will someone come for me... or was I simply discarded, like a broken piece?
+This silence... it screams louder than any battle I’ve ever faced. "
+Speaker = "Forgotten"
+ShowAllLines = false
+TypingSpeed = 1.0

@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://78qfhkuup75a"]
+
+[ext_resource type="StyleBox" path="res://Resources/DialogStyleBox.tres" id="1_3ef1k"]
+[ext_resource type="Script" path="res://Templates/Dialog.cs" id="1_oet44"]
+[ext_resource type="FontFile" uid="uid://ckqc7x0hexwcg" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono-Bold.ttf" id="3_rp7sp"]
+[ext_resource type="Texture2D" uid="uid://c1r2os2jh4o1c" path="res://Assets/face.png" id="4_dgkh8"]
+[ext_resource type="FontFile" uid="uid://5vd516g30iwy" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono8.ttf" id="4_qcsaf"]
+
+[node name="Dialog" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oet44")
+
+[node name="PanelBanner" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_left = 20.0
+offset_top = 295.0
+offset_right = 160.0
+offset_bottom = 331.0
+theme_override_styles/panel = ExtResource("1_3ef1k")
+
+[node name="DialogBanner" type="Label" parent="PanelBanner"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_rp7sp")
+theme_override_font_sizes/font_size = 16
+text = "Phoebe"
+
+[node name="PanelText" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 340.0
+offset_right = 620.0
+offset_bottom = 460.0
+theme_override_styles/panel = ExtResource("1_3ef1k")
+
+[node name="DialogText" type="Label" parent="PanelText"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("3_rp7sp")
+text = "What... where am I?"
+autowrap_mode = 3
+
+[node name="PhoebeFace" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 75.0
+offset_right = 640.0
+offset_bottom = 340.0
+texture = ExtResource("4_dgkh8")
+expand_mode = 1
+
+[node name="CatFace" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 386.0
+offset_top = 4.0
+offset_right = 642.0
+offset_bottom = 260.0
+
+[node name="ManFace" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 364.0
+offset_top = 4.0
+offset_right = 620.0
+offset_bottom = 260.0
+
+[node name="Space Hint" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 2
+offset_left = 30.0
+offset_top = 443.0
+offset_right = 612.0
+offset_bottom = 451.0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_qcsaf")
+theme_override_font_sizes/font_size = 8
+text = "[press space to continue]"
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
