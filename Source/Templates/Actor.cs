@@ -89,26 +89,26 @@ public partial class Actor : CharacterBody2D
 
    public Vector2 FaceDirection
    {
-      get
-      {
-         return sprite.FlipH ? Vector2.Left : Vector2.Right;
-      }
+	  get
+	  {
+		 return sprite.FlipH ? Vector2.Left : Vector2.Right;
+	  }
    }
 
 
    public float WalkingSpeed
    {
-      get { return Meter * WalkingModifier; }
+	  get { return Meter * WalkingModifier; }
    }
 
    public float RunningSpeed
    {
-      get { return Meter * RunningModifier; }
+	  get { return Meter * RunningModifier; }
    }
 
    public float JumpSpeed
    {
-      get { return JumpHeight * Meter; }
+	  get { return JumpHeight * Meter; }
    }
 
    public int JumpCount { get; set; } = 0;
@@ -148,262 +148,262 @@ public partial class Actor : CharacterBody2D
 
    public override void _Ready()
    {
-      AttackPosition = attackSprite.Position;
-      SpawnBullet().QueueFree();
-      HealthPoints.ValueChanged += OnTakeDamage;
-      HitArea.BodyEntered += (body) =>
-      {
-         if (body is Actor actor && body != this)
-         {
-            actor.Damage(15.0f, Position);
-         }
-      };
+	  AttackPosition = attackSprite.Position;
+	  SpawnBullet().QueueFree();
+	  HealthPoints.ValueChanged += OnTakeDamage;
+	  HitArea.BodyEntered += (body) =>
+	  {
+		 if (body is Actor actor && body != this)
+		 {
+			actor.Damage(15.0f, Position);
+		 }
+	  };
    }
 
    public void Jump()
    {
-      JumpCount++;
-      if (JumpCount >= JumpMax) { return; }
-      ToggleLadder(false);
-      Velocity = new Vector2(Velocity.X, -JumpSpeed);
+	  JumpCount++;
+	  if (JumpCount >= JumpMax) { return; }
+	  ToggleLadder(false);
+	  Velocity = new Vector2(Velocity.X, -JumpSpeed);
    }
 
    public void Dash()
    {
-      if (DashRefresh > 0.0f || SkillPoints.CurrentValue < DashCost) { return; }
-      DashRefresh = 1.8f;
-      SkillPoints.Subtract(DashCost);
+	  if (DashRefresh > 0.0f || SkillPoints.CurrentValue < DashCost) { return; }
+	  DashRefresh = 1.8f;
+	  SkillPoints.Subtract(DashCost);
    }
 
    public void Attack()
    {
-      if (AttackRefresh > 0.0f || CurrentState.IsDashing()) { return; }
-      AttackRefresh = 1.0f;
-      slashSound.Play();
+	  if (AttackRefresh > 0.0f || CurrentState.IsDashing()) { return; }
+	  AttackRefresh = 1.0f;
+	  slashSound.Play();
    }
 
    public void Knockback(Vector2 sourcePosition)
    {
-      Vector2 direction = (GlobalPosition - sourcePosition).Normalized();
-      KnockbackDirection = direction * KnockbackForce;
-      KnockbackTimer = KnockbackDuration;
+	  Vector2 direction = (GlobalPosition - sourcePosition).Normalized();
+	  KnockbackDirection = direction * KnockbackForce;
+	  KnockbackTimer = KnockbackDuration;
    }
 
    public void VerticalAction()
    {
-      if (IsLadderDetected && CurrentTarget != null)
-      {
-         IsVerticalMovementEnabled = true;
-         GlobalPosition = new Vector2(CurrentTarget.GlobalPosition.X, Position.Y + Direction.Y);
-      }
+	  if (IsLadderDetected && CurrentTarget != null)
+	  {
+		 IsVerticalMovementEnabled = true;
+		 GlobalPosition = new Vector2(CurrentTarget.GlobalPosition.X, Position.Y + Direction.Y);
+	  }
    }
 
    public void Fire()
    {
-      if (SkillPoints.CurrentValue > FireCost)
-      {
-         Bullet bullet = SpawnBullet();
-         bullet.Direction = sprite.FlipH ? Vector2.Left : Vector2.Right;
-         bullet.Position = hook.GlobalPosition;
-         bullet.Creator = this;
-         GetParent().AddChild(bullet);
-         if (bullet.Direction == Vector2.Left)
-         {
-            bullet.FlipLeft();
-         }
-         SkillPoints.Subtract(FireCost);
-         fireSound.Play();
-      }
+	  if (SkillPoints.CurrentValue > FireCost)
+	  {
+		 Bullet bullet = SpawnBullet();
+		 bullet.Direction = sprite.FlipH ? Vector2.Left : Vector2.Right;
+		 bullet.Position = hook.GlobalPosition;
+		 bullet.Creator = this;
+		 GetParent().AddChild(bullet);
+		 if (bullet.Direction == Vector2.Left)
+		 {
+			bullet.FlipLeft();
+		 }
+		 SkillPoints.Subtract(FireCost);
+		 fireSound.Play();
+	  }
    }
    public void Damage(float damage, Vector2 direction)
    {
-      Knockback(direction);
-      HealthPoints.Subtract(damage);
+	  Knockback(direction);
+	  HealthPoints.Subtract(damage);
    }
 
    private void UpdateAnimation()
    {
-      sprite.FlipH = Direction != Vector2.Zero ? Direction.X < 0 : sprite.FlipH;
+	  sprite.FlipH = Direction != Vector2.Zero ? Direction.X < 0 : sprite.FlipH;
 
-      if (CurrentState.KeepAtFrame >= 0)
-      {
-         sprite.Stop();
-         sprite.Animation = CurrentState.Animation;
-         sprite.Frame = CurrentState.KeepAtFrame;
-      }
-      else
-      {
-         sprite.Play(CurrentState.Animation);
-      }
+	  if (CurrentState.KeepAtFrame >= 0)
+	  {
+		 sprite.Stop();
+		 sprite.Animation = CurrentState.Animation;
+		 sprite.Frame = CurrentState.KeepAtFrame;
+	  }
+	  else
+	  {
+		 sprite.Play(CurrentState.Animation);
+	  }
 
-      if (CurrentState.IsAttacking())
-      {
-         if (sprite.FlipH)
-         {
-            attackSprite.Position = AttackPosition * new Vector2(-1, 1);
-            attackSprite.FlipH = true;
-         }
-         else
-         {
-            attackSprite.Position = AttackPosition * new Vector2(1, 1);
-            attackSprite.FlipH = false;
-         }
-         attackSprite.Play();
-      }
-      else
-      {
-         attackSprite.Stop();
-      }
+	  if (CurrentState.IsAttacking())
+	  {
+		 if (sprite.FlipH)
+		 {
+			attackSprite.Position = AttackPosition * new Vector2(-1, 1);
+			attackSprite.FlipH = true;
+		 }
+		 else
+		 {
+			attackSprite.Position = AttackPosition * new Vector2(1, 1);
+			attackSprite.FlipH = false;
+		 }
+		 attackSprite.Play();
+	  }
+	  else
+	  {
+		 attackSprite.Stop();
+	  }
    }
 
    private void UpdateState()
    {
-      LastState = CurrentState;
+	  LastState = CurrentState;
 
-      if (IsOnFloor())
-      {
-         if (Direction == Vector2.Zero)
-         {
-            CurrentState = ActorState.Idle;
-         }
-         else
-         {
-            CurrentState = ActorState.Running;
-         }
+	  if (IsOnFloor())
+	  {
+		 if (Direction == Vector2.Zero)
+		 {
+			CurrentState = ActorState.Idle;
+		 }
+		 else
+		 {
+			CurrentState = ActorState.Running;
+		 }
 
-         // Reset jump count when on floor
-         JumpCount = 0;
-      }
-      else
-      {
-         if (Velocity.Y < 0)
-         {
-            CurrentState = ActorState.Jumping;
-         }
-         else
-         {
-            CurrentState = ActorState.Falling;
-         }
-      }
+		 // Reset jump count when on floor
+		 JumpCount = 0;
+	  }
+	  else
+	  {
+		 if (Velocity.Y < 0)
+		 {
+			CurrentState = ActorState.Jumping;
+		 }
+		 else
+		 {
+			CurrentState = ActorState.Falling;
+		 }
+	  }
 
-      if (DashRefresh > 0.0f)
-      {
-         DashRefresh -= 0.1f;
-         CurrentState = ActorState.Dashing;
-      }
+	  if (DashRefresh > 0.0f)
+	  {
+		 DashRefresh -= 0.1f;
+		 CurrentState = ActorState.Dashing;
+	  }
 
-      if (AttackRefresh > 0.0f)
-      {
-         CurrentState = ActorState.Attacking;
-         HitBox.Disabled = attackSprite.Frame > 3;
-         if (attackSprite.IsPlaying() && attackSprite.Frame > 4)
-         {
-            AttackRefresh = -1.0f;
-            HitBox.Disabled = true;
-         }
-      }
+	  if (AttackRefresh > 0.0f)
+	  {
+		 CurrentState = ActorState.Attacking;
+		 HitBox.Disabled = attackSprite.Frame > 3;
+		 if (attackSprite.IsPlaying() && attackSprite.Frame > 4)
+		 {
+			AttackRefresh = -1.0f;
+			HitBox.Disabled = true;
+		 }
+	  }
 
-      if (KnockbackTimer > 0.0f)
-      {
-         KnockbackTimer -= 0.1f;
-      }
+	  if (KnockbackTimer > 0.0f)
+	  {
+		 KnockbackTimer -= 0.1f;
+	  }
 
-      if (IsVerticalMovementEnabled && IsOnFloor() && Direction.Y > 0 && CurrentTarget.GlobalPosition.Y < GlobalPosition.Y)
-      {
-         ToggleLadder(false);
-      }
+	  if (IsVerticalMovementEnabled && IsOnFloor() && Direction.Y > 0 && CurrentTarget.GlobalPosition.Y < GlobalPosition.Y)
+	  {
+		 ToggleLadder(false);
+	  }
    }
 
    public override void _PhysicsProcess(double delta)
    {
-      Direction = GetInputDirection();
-      PhysicsUpdate(delta);
-      UpdateState();
-      UpdateAnimation();
-      Velocity = GetNextVelocity(delta);
-      PlaySound();
-      MoveAndSlide();
+	  Direction = GetInputDirection();
+	  PhysicsUpdate(delta);
+	  UpdateState();
+	  UpdateAnimation();
+	  Velocity = GetNextVelocity(delta);
+	  PlaySound();
+	  MoveAndSlide();
    }
 
    private void PlaySound()
    {
-      if (LastState.IsFalling() && IsOnFloor() && !landingSound.IsPlaying())
-      {
-         landingSound.Play();
-      }
+	  if (LastState.IsFalling() && IsOnFloor() && !landingSound.IsPlaying())
+	  {
+		 landingSound.Play();
+	  }
    }
 
    private void OnTakeDamage(float value)
    {
-      if (HealthPoints.IsEmpty)
-      {
-         QueueFree();
-      }
+	  if (HealthPoints.IsEmpty)
+	  {
+		 QueueFree();
+	  }
    }
 
    private Vector2 GetNextVelocity(double delta)
    {
-      if (IsStopped)
-      {
-         return Vector2.Zero;
-      }
+	  if (IsStopped)
+	  {
+		 return Vector2.Zero;
+	  }
 
-      Vector2 velocity = Velocity;
+	  Vector2 velocity = Velocity;
 
-      if (Direction == Vector2.Zero && KnockbackTimer <= 0.0f)
-      {
-         velocity = new Vector2(0, velocity.Y);
-      }
-      else
-      {
-         velocity = new Vector2(Direction.X * RunningSpeed, velocity.Y);
-      }
+	  if (Direction == Vector2.Zero && KnockbackTimer <= 0.0f)
+	  {
+		 velocity = new Vector2(0, velocity.Y);
+	  }
+	  else
+	  {
+		 velocity = new Vector2(Direction.X * RunningSpeed, velocity.Y);
+	  }
 
-      if (CurrentState.IsAttacking() && IsOnFloor())
-      {
-         velocity = new Vector2(Direction.X * (RunningSpeed / 2), velocity.Y);
-      }
+	  if (CurrentState.IsAttacking() && IsOnFloor())
+	  {
+		 velocity = new Vector2(Direction.X * (RunningSpeed / 2), velocity.Y);
+	  }
 
-      if (CurrentState.IsDashing())
-      {
-         velocity = new Vector2(FaceDirection.X * RunningSpeed * 3.0f * DashRefresh, 0);
-      }
+	  if (CurrentState.IsDashing())
+	  {
+		 velocity = new Vector2(FaceDirection.X * RunningSpeed * 3.0f * DashRefresh, 0);
+	  }
 
-      if (KnockbackTimer > 0.0f)
-      {
-         velocity = new Vector2(KnockbackDirection.X, velocity.Y);
-      }
+	  if (KnockbackTimer > 0.0f)
+	  {
+		 velocity = new Vector2(KnockbackDirection.X, velocity.Y);
+	  }
 
-      if (!IsOnFloor())
-      {
-         velocity = new Vector2(velocity.X, velocity.Y + (Gravity * 1.2f));
-      }
+	  if (!IsOnFloor())
+	  {
+		 velocity = new Vector2(velocity.X, velocity.Y + (Gravity * 1.2f));
+	  }
 
-      if (IsVerticalMovementEnabled)
-      {
-         velocity = new Vector2(0, Direction.Y * RunningSpeed * LadderSpeedScale);
-      }
+	  if (IsVerticalMovementEnabled)
+	  {
+		 velocity = new Vector2(0, Direction.Y * RunningSpeed * LadderSpeedScale);
+	  }
 
-      return velocity;
+	  return velocity;
    }
 
    public void ToggleLadder(bool toggle, Node2D target = null)
    {
-      CurrentTarget = target;
+	  CurrentTarget = target;
 
-      if (toggle)
-      {
-         IsLadderDetected = true;
-      }
-      else
-      {
-         IsLadderDetected = false;
-         IsVerticalMovementEnabled = false;
-      }
+	  if (toggle)
+	  {
+		 IsLadderDetected = true;
+	  }
+	  else
+	  {
+		 IsLadderDetected = false;
+		 IsVerticalMovementEnabled = false;
+	  }
    }
 
    public virtual void PhysicsUpdate(double delta)
    {
-      // Override this method to add custom physics
+	  // Override this method to add custom physics
    }
 }

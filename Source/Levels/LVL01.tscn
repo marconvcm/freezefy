@@ -29,6 +29,10 @@ color = Color(0.46265, 0.762616, 0.767415, 1)
 [node name="Player" parent="." index="7"]
 position = Vector2(-88, -28)
 textFragment = ExtResource("2_lryef")
+Meter = 48.0
+JumpHeight = 20.0
+FireCost = 0.0
+DashCost = 0.0
 LadderSpeedScale = 1.0
 
 [node name="TopLeft" parent="." index="8"]

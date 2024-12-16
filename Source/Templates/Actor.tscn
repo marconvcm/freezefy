@@ -104,8 +104,7 @@ texture = ExtResource("2_fv82x")
 position = Vector2(0, -15)
 sprite_frames = ExtResource("3_uskxw")
 animation = &"attack"
-autoplay = "attack"
-frame_progress = 0.0183869
+autoplay = "default"
 
 [node name="Attack" type="AnimatedSprite2D" parent="."]
 position = Vector2(18, -13)

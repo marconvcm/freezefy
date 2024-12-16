@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://78qfhkuup75a"]
 
-[ext_resource type="StyleBox" path="res://Resources/DialogStyleBox.tres" id="1_3ef1k"]
+[ext_resource type="StyleBox" uid="uid://bs3fjx8nkjdff" path="res://Resources/DialogStyleBox.tres" id="1_3ef1k"]
 [ext_resource type="Script" path="res://Templates/Dialog.cs" id="1_oet44"]
 [ext_resource type="FontFile" uid="uid://ckqc7x0hexwcg" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono-Bold.ttf" id="3_rp7sp"]
-[ext_resource type="Texture2D" uid="uid://c1r2os2jh4o1c" path="res://Assets/face.png" id="4_dgkh8"]
+[ext_resource type="Texture2D" uid="uid://uon1xq4avgc4" path="res://Assets/nuface2.png" id="4_oxwgm"]
 [ext_resource type="FontFile" uid="uid://5vd516g30iwy" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono8.ttf" id="4_qcsaf"]
 
 [node name="Dialog" type="Control"]
@@ -47,11 +47,11 @@ autowrap_mode = 3
 
 [node name="PhoebeFace" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 375.0
-offset_top = 75.0
-offset_right = 640.0
-offset_bottom = 340.0
-texture = ExtResource("4_dgkh8")
+offset_left = 372.0
+offset_top = 101.0
+offset_right = 637.0
+offset_bottom = 366.0
+texture = ExtResource("4_oxwgm")
 expand_mode = 1
 
 [node name="CatFace" type="TextureRect" parent="."]
