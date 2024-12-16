@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbfw6jsqxagen"]
+[gd_scene load_steps=8 format=3 uid="uid://bbfw6jsqxagen"]
 
 [ext_resource type="Script" path="res://Templates/Attach.cs" id="1_08fvs"]
-[ext_resource type="Texture2D" uid="uid://cqp6ai0q6qtls" path="res://Assets/Mockup_2.png" id="1_lqm2l"]
 [ext_resource type="Texture2D" uid="uid://80xcene5l4p2" path="res://Assets/VFX/All_Fire_Bullet_Pixel_16x16_00.png" id="2_ruj5c"]
 
 [sub_resource type="Gradient" id="Gradient_17iwd"]
@@ -247,7 +246,6 @@ position = Vector2(0, -10)
 [node name="Cannon" type="Sprite2D" parent="Display/Axys"]
 visible = false
 position = Vector2(15, 0)
-texture = ExtResource("1_lqm2l")
 centered = false
 offset = Vector2(-8, -6)
 region_enabled = true
@@ -294,7 +292,6 @@ color_ramp = SubResource("Gradient_17iwd")
 
 [node name="Gun" type="Sprite2D" parent="Display/Axys"]
 position = Vector2(15, 4)
-texture = ExtResource("1_lqm2l")
 centered = false
 offset = Vector2(-8, -6)
 region_enabled = true
@@ -337,7 +334,6 @@ initial_velocity_max = 20.0
 color = Color(0.805, 0.615, 0, 1)
 
 [node name="Barrel" type="Sprite2D" parent="Display/Axys"]
-texture = ExtResource("1_lqm2l")
 centered = false
 offset = Vector2(-8, -6)
 region_enabled = true
@@ -349,7 +345,6 @@ target_position = Vector2(300, 0)
 
 [node name="Base" type="Sprite2D" parent="Display"]
 position = Vector2(0, -6)
-texture = ExtResource("1_lqm2l")
 region_enabled = true
 region_rect = Rect2(161, 52, 14, 12)
 
