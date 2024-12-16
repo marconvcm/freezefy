@@ -8,13 +8,15 @@ public struct ActorState
 
    public static readonly ActorState Jumping = new ActorState { Animation = "jump", KeepAtFrame = 0 };
 
+   public static readonly ActorState DoubleJumping = new ActorState { Animation = "djump", KeepAtFrame = 1 };
+
    public static readonly ActorState Falling = new ActorState { Animation = "jump", KeepAtFrame = 1 };
 
    public static readonly ActorState Attacking = new ActorState { Animation = "attack" };
 
    public static readonly ActorState Shooting = new ActorState { Animation = "attack" };
 
-   public static readonly ActorState Dashing = new ActorState { Animation = "run", KeepAtFrame = 1};
+   public static readonly ActorState Dashing = new ActorState { Animation = "dash", KeepAtFrame = 1};
 
    public string Animation = "idle";
 

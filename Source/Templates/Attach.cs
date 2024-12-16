@@ -51,7 +51,7 @@ public partial class Attach : StaticBody2D, MountInterface
       bullet.Creator = this;
       bullet.Rotation = Axys.Rotation;
       bullet.Direction = Vector2.Right.Rotated(Axys.Rotation).Normalized();
-      bullet.speed = 1000;
+      bullet.Speed = 1000;
       GetParent().AddChild(bullet);
       if (bullet.Direction == Vector2.Left)
       {

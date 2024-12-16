@@ -53,7 +53,6 @@ Sprite = NodePath("Sprite")
 Shape = NodePath("Shape")
 Light = NodePath("Light")
 Particles = NodePath("Particles")
-speed = 200.0
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 visible = false

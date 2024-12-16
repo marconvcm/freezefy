@@ -103,7 +103,7 @@ texture = ExtResource("2_fv82x")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 sprite_frames = ExtResource("3_uskxw")
-animation = &"djump"
+animation = &"dash"
 autoplay = "default"
 
 [node name="Attack" type="AnimatedSprite2D" parent="."]
