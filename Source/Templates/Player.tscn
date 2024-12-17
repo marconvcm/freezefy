@@ -18,8 +18,7 @@ EaseType = 0
 EnableOpacity = true
 AutoPlay = false
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3qqsj"]
-radius = 11.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_byiww"]
 height = 60.0
 
 [sub_resource type="Gradient" id="Gradient_jp62q"]
@@ -75,8 +74,8 @@ Stat = NodePath("../ColdPlugin")
 
 [node name="Shape" parent="." index="1"]
 z_index = 10
-position = Vector2(0, -30)
-shape = SubResource("CapsuleShape2D_3qqsj")
+position = Vector2(0, -31)
+shape = SubResource("CapsuleShape2D_byiww")
 
 [node name="Light" parent="." index="2"]
 position = Vector2(4, -51)

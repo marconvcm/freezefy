@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d7m2u16ca0ye"]
+
+[ext_resource type="PackedScene" uid="uid://cxggrcf2dk0sg" path="res://Templates/Minion.tscn" id="1_10bua"]
+[ext_resource type="SpriteFrames" uid="uid://blpjycmsu5yiy" path="res://Assets/Bear_Animation.tres" id="2_dqahr"]
+
+[node name="Mushroom" instance=ExtResource("1_10bua")]
+
+[node name="Sprite" parent="." index="3"]
+position = Vector2(0, -26)
+sprite_frames = ExtResource("2_dqahr")
+animation = &"run"
+frame_progress = 0.864437
+
+[node name="Attack" parent="." index="4"]
+visible = false
+
+[node name="HPBar" parent="." index="6"]
+visible = false
+
+[node name="SPBar" parent="." index="7"]
+visible = false

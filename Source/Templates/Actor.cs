@@ -1,5 +1,3 @@
-using System;
-using System.Threading.Tasks;
 using Godot;
 
 public partial class Actor : CharacterBody2D
@@ -212,7 +210,7 @@ public partial class Actor : CharacterBody2D
 		if (SkillPoints.CurrentValue > FireCost && ShootRefresh <= 0.0f && !CurrentState.IsDashing())
 		{
 			ShootRefresh = 1.0f;  // Controls animation duration
-			
+
 			Bullet bullet = SpawnBullet();
 			bullet.Direction = sprite.FlipH ? Vector2.Left : Vector2.Right;
 			bullet.Position = hook.GlobalPosition;
@@ -377,6 +375,7 @@ public partial class Actor : CharacterBody2D
 		UpdateState();
 		UpdateAnimation();
 		Velocity = GetNextVelocity(delta);
+		FloorSnapLength = 10.0f; // Is a good value for most cases
 		PlaySound();
 		MoveAndSlide();
 	}

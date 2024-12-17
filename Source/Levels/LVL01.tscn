@@ -29,7 +29,7 @@ visible = true
 color = Color(0.46265, 0.762616, 0.767415, 1)
 
 [node name="Player" parent="." index="7"]
-position = Vector2(-272, -176)
+position = Vector2(-160, -304)
 Meter = 32.0
 LadderSpeedScale = 1.0
 
