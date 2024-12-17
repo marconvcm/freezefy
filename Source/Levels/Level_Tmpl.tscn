@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw42t61po7yy3"]
+[gd_scene load_steps=6 format=3 uid="uid://bw42t61po7yy3"]
 
+[ext_resource type="PackedScene" uid="uid://752xbach55lb" path="res://Templates/DebugPanel.tscn" id="1_ijiah"]
 [ext_resource type="PackedScene" uid="uid://78qfhkuup75a" path="res://Templates/Dialog.tscn" id="1_rneo8"]
+[ext_resource type="Script" path="res://Templates/DebugPlugin.cs" id="3_0kcd5"]
 [ext_resource type="TileSet" uid="uid://bxbb7bmpd05fx" path="res://Assets/3th Party/3th Party - Tiles.tres" id="4_16ujr"]
 [ext_resource type="PackedScene" uid="uid://dwn8dmb3sa17j" path="res://Templates/Player.tscn" id="5_hb8cy"]
 
@@ -11,8 +13,14 @@ color = Color(0.487662, 0.487662, 0.487662, 1)
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 
+[node name="DebugPanel" parent="UILayer" instance=ExtResource("1_ijiah")]
+
 [node name="Dialog" parent="UILayer" node_paths=PackedStringArray("gameNode") instance=ExtResource("1_rneo8")]
 gameNode = NodePath("../..")
+
+[node name="DebugPlugin" type="Node" parent="UILayer" node_paths=PackedStringArray("Panel")]
+script = ExtResource("3_0kcd5")
+Panel = NodePath("../DebugPanel")
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
