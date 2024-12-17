@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://blpjycmsu5yiy"]
+[gd_resource type="SpriteFrames" load_steps=38 format=3 uid="uid://blpjycmsu5yiy"]
 
 [ext_resource type="Texture2D" uid="uid://dy6c6acrjh13f" path="res://Assets/Mushroom/Attack.png" id="1_vikus"]
 [ext_resource type="Texture2D" uid="uid://gy3hqqgvdu8x" path="res://Assets/Mushroom/Idle.png" id="2_j4h3a"]
@@ -50,6 +50,30 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1daq"]
 atlas = ExtResource("2_j4h3a")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slfju"]
+atlas = ExtResource("3_45863")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6s1m6"]
+atlas = ExtResource("3_45863")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb8la"]
+atlas = ExtResource("3_45863")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33rq3"]
+atlas = ExtResource("3_45863")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yopo4"]
+atlas = ExtResource("3_45863")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lkv6"]
+atlas = ExtResource("3_45863")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1am7a"]
@@ -169,12 +193,30 @@ animations = [{
 "name": &"default",
 "speed": 8.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slfju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6s1m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb8la")
+}],
 "loop": true,
 "name": &"djump",
 "speed": 5.0
 }, {
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33rq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yopo4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lkv6")
+}],
 "loop": true,
 "name": &"jump",
 "speed": 36.0

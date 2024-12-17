@@ -4,6 +4,8 @@
 [ext_resource type="SpriteFrames" uid="uid://blpjycmsu5yiy" path="res://Assets/Bear_Animation.tres" id="2_dqahr"]
 
 [node name="Mushroom" instance=ExtResource("1_10bua")]
+KnockbackForce = 500.0
+KnockbackDirection = Vector2(-2, -2)
 
 [node name="Sprite" parent="." index="3"]
 position = Vector2(0, -26)
@@ -11,11 +13,10 @@ sprite_frames = ExtResource("2_dqahr")
 animation = &"run"
 frame_progress = 0.864437
 
-[node name="Attack" parent="." index="4"]
-visible = false
-
 [node name="HPBar" parent="." index="6"]
-visible = false
+offset_top = -46.0
+offset_bottom = -44.0
 
 [node name="SPBar" parent="." index="7"]
-visible = false
+offset_top = -50.0
+offset_bottom = -48.0

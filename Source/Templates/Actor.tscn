@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://bkv5nljjr0t6v"]
+[gd_scene load_steps=22 format=3 uid="uid://bkv5nljjr0t6v"]
 
 [ext_resource type="Script" path="res://Templates/Actor.cs" id="1_4kan6"]
 [ext_resource type="Script" path="res://Common/Plugins/StatPlugin.cs" id="2_8d3bd"]
 [ext_resource type="Texture2D" uid="uid://coy3akynnwprd" path="res://Resources/LightShape.tres" id="2_fv82x"]
 [ext_resource type="Script" path="res://Common/Plugins/StatProgressBarPlugin.cs" id="3_rquf7"]
 [ext_resource type="SpriteFrames" uid="uid://djs8tgkx8bsww" path="res://Resources/Knight.tres" id="3_uskxw"]
+[ext_resource type="Script" path="res://Common/Plugins/FlashPlugin.cs" id="4_4aidj"]
 [ext_resource type="SpriteFrames" uid="uid://cdnac4umnov2v" path="res://Resources/Slash.tres" id="4_lkds2"]
 [ext_resource type="AudioStream" uid="uid://dxjkby0k4iv1j" path="res://Assets/SFX/fire.mp3" id="7_5v6dc"]
 [ext_resource type="AudioStream" uid="uid://bu8rsl6mjsuem" path="res://Assets/SFX/slash.mp3" id="8_1grad"]
@@ -46,11 +47,12 @@ gradient = SubResource("Gradient_1mgte")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0hnc4"]
 texture = SubResource("GradientTexture1D_76jp2")
 
-[node name="Actor" type="CharacterBody2D" node_paths=PackedStringArray("HealthPoints", "SkillPoints", "HitBox", "HitArea", "fireSound", "slashSound", "landingSound", "sprite", "attackSprite", "shape", "light", "hook", "Sensor")]
+[node name="Actor" type="CharacterBody2D" node_paths=PackedStringArray("HealthPoints", "Flash", "SkillPoints", "HitBox", "HitArea", "fireSound", "slashSound", "landingSound", "sprite", "attackSprite", "shape", "light", "hook", "Sensor")]
 script = ExtResource("1_4kan6")
 Meter = 16.0
 JumpHeight = 12.0
 HealthPoints = NodePath("Plugins/HPPlugin")
+Flash = NodePath("Plugins/FlashPlugin")
 SkillPoints = NodePath("Plugins/SPPlugin")
 HitBox = NodePath("Attack/HitBox/Shape")
 HitArea = NodePath("Attack/HitBox")
@@ -89,6 +91,10 @@ RechargeRate = 0.5
 script = ExtResource("3_rquf7")
 ProgressBar = NodePath("../../SPBar")
 Stat = NodePath("../SPPlugin")
+
+[node name="FlashPlugin" type="Node" parent="Plugins" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("4_4aidj")
+Sprite = NodePath("../../Sprite")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

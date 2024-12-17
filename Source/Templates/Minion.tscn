@@ -6,5 +6,9 @@
 [node name="Minion" instance=ExtResource("1_qmaaf")]
 script = ExtResource("2_8ue1s")
 PlayerPath = null
+IsFireAvailable = true
+IsMeleeAvailable = true
+IsJumpAvailable = true
 AttackRange = 30.0
 FireRange = 200.0
+Meter = 32.0

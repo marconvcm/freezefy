@@ -44,12 +44,13 @@ texture = SubResource("GradientTexture1D_w7tmu")
 radius = 36.0
 height = 72.0
 
-[node name="Player" node_paths=PackedStringArray("HintTweenPlugin", "camera", "ColdPoints") instance=ExtResource("1_mivhe")]
+[node name="Player" node_paths=PackedStringArray("HintTweenPlugin", "camera", "ColdPoints", "FrameStopperPlugin") instance=ExtResource("1_mivhe")]
 script = ExtResource("2_wbjk8")
 HintTweenPlugin = NodePath("Plugins/HintTweenPlugin")
 textFragment = null
 camera = NodePath("Camera")
 ColdPoints = NodePath("Plugins/ColdPlugin")
+FrameStopperPlugin = NodePath("")
 FireCost = 10.0
 DashCost = 20.0
 BulletSpeedScale = 1.05
@@ -89,7 +90,7 @@ animation = &"run"
 autoplay = "attack"
 
 [node name="Camera" type="Camera2D" parent="." index="4"]
-position = Vector2(0, -20)
+position = Vector2(0, -110)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 drag_horizontal_enabled = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://cpspo8nfqtack"]
+[gd_scene load_steps=11 format=4 uid="uid://cpspo8nfqtack"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_d1xpg"]
 [ext_resource type="PackedScene" uid="uid://dxxi457hqe1un" path="res://Templates/Ladder.tscn" id="3_e1b5v"]
 [ext_resource type="PackedScene" uid="uid://boreadu5xkdde" path="res://Templates/RechargeSpot.tscn" id="4_4834n"]
 [ext_resource type="PackedScene" uid="uid://dhbfwap526xpy" path="res://Templates/Door.tscn" id="5_rxhip"]
+[ext_resource type="PackedScene" uid="uid://cr1wnh7t7xhss" path="res://Templates/Platform.tscn" id="6_eswjp"]
 [ext_resource type="AudioStream" uid="uid://c3chfq3cf18o" path="res://Assets/Music/testgwwj76.mp3" id="6_fi77k"]
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
 
@@ -105,6 +106,28 @@ BinarySwitch = NodePath("../Binary")
 position = Vector2(-192, -32)
 scale = Vector2(2, 2)
 
+[node name="Platform" parent="Interactables" index="6" node_paths=PackedStringArray("BinaryA", "BinaryB") instance=ExtResource("6_eswjp")]
+position = Vector2(-368, -272)
+BinaryA = NodePath("BinaryUp")
+BinaryB = NodePath("BinaryDown")
+
+[node name="Follow" parent="Interactables/Platform/Path" index="0"]
+loop = false
+
+[node name="Sprite" parent="Interactables/Platform/Path/Follow" index="0"]
+scale = Vector2(2, 2)
+
+[node name="BinaryUp" parent="Interactables/Platform" index="1" node_paths=PackedStringArray("Next") instance=ExtResource("6_lld3x")]
+position = Vector2(96, -16)
+scale = Vector2(2, 2)
+On = true
+Next = NodePath("../BinaryDown")
+
+[node name="BinaryDown" parent="Interactables/Platform" index="2" node_paths=PackedStringArray("Next") instance=ExtResource("6_lld3x")]
+position = Vector2(96, 112)
+scale = Vector2(2, 2)
+Next = NodePath("../BinaryUp")
+
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="11"]
 position = Vector2(1557, -795)
 scale = Vector2(10, 10)
@@ -126,3 +149,5 @@ stream = ExtResource("6_fi77k")
 volume_db = -4.0
 autoplay = true
 parameters/looping = true
+
+[editable path="Interactables/Platform"]

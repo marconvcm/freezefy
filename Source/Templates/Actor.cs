@@ -45,6 +45,11 @@ public partial class Actor : CharacterBody2D
 	public StatPlugin HealthPoints { get; set; }
 
 	[Export]
+	public FlashPlugin Flash { get; set; }
+
+	public bool IsAlive => !HealthPoints.IsEmpty;
+
+	[Export]
 	public StatPlugin SkillPoints { get; set; }
 
 	[Export]
@@ -153,6 +158,9 @@ public partial class Actor : CharacterBody2D
 
 	public float ShootRefresh { get; set; } = -1.0f;
 
+	[Signal]
+	public delegate void OnHitEventHandler(Actor targetActor);
+
 	public override void _Ready()
 	{
 		AttackPosition = attackSprite.Position;
@@ -162,6 +170,7 @@ public partial class Actor : CharacterBody2D
 		{
 			if (body is Actor actor && body != this)
 			{
+				EmitSignal(nameof(OnHit), actor);
 				actor.Damage(15.0f, Position);
 			}
 		};
@@ -191,6 +200,7 @@ public partial class Actor : CharacterBody2D
 
 	public void Knockback(Vector2 sourcePosition)
 	{
+		Flash.Flash();
 		Vector2 direction = (GlobalPosition - sourcePosition).Normalized();
 		KnockbackDirection = direction * KnockbackForce;
 		KnockbackTimer = KnockbackDuration;

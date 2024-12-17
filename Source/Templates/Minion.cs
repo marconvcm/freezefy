@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 public partial class Minion : Actor
 {
@@ -9,10 +8,18 @@ public partial class Minion : Actor
    private Player Player;
 
    [Export]
+   public bool IsFireAvailable = true;
+
+   [Export]
+   public bool IsMeleeAvailable = true;
+
+   [Export]
+   public bool IsJumpAvailable = true;
+
+   [Export]
    public float AttackRange = 30.0f;
    [Export]
    public float FireRange = 200.0f;
-
 
    public override void _Ready()
    {
@@ -22,16 +29,14 @@ public partial class Minion : Actor
 
    public override Vector2 GetInputDirection()
    {
-      if (Player != null)
+      if (Player != null && Player.IsAlive)
       {
 
          Vector2 directionToPlayer = Player.GlobalPosition - GlobalPosition;
-
          if (directionToPlayer.Length() <= AttackRange)
          {
-            return Vector2.Zero;
+            return new Vector2(-Mathf.Sign(directionToPlayer.X), 0);
          }
-
          return new Vector2(Mathf.Sign(directionToPlayer.X), 0);
       }
 
@@ -43,24 +48,23 @@ public partial class Minion : Actor
    {
       base._PhysicsProcess(delta);
 
-      if (Player == null)
+      if (Player == null || !Player.IsAlive)
       {
          return;
       }
 
       Vector2 directionToPlayer = Player.GlobalPosition - GlobalPosition;
 
-      if (IsOnWall())
+      if (IsOnWall() && IsJumpAvailable)
       {
          Jump();
       }
 
-      if (directionToPlayer.Length() <= AttackRange && IsOnFloor())
+      if (directionToPlayer.Length() <= AttackRange && IsOnFloor() && IsMeleeAvailable)
       {
          Attack();
       }
-
-      else if (directionToPlayer.Length() > FireRange && directionToPlayer.Length() > AttackRange)
+      else if (directionToPlayer.Length() > FireRange && directionToPlayer.Length() > AttackRange && IsFireAvailable)
       {
          Fire();
       }
