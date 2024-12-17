@@ -30,7 +30,7 @@ public partial class Bullet : Area2D
    public CpuParticles2D Particles;
 
    [Export]
-   public float speed = 800;
+   public float Speed = 800;
 
    public override void _Ready()
    {
@@ -62,7 +62,7 @@ public partial class Bullet : Area2D
          FlipRight();
       }
 
-      Position += Direction * (speed * (float)delta);
+      Position += Direction * (Speed * (float)delta);
 
       if (Position.DistanceTo(InitialPosition) > DistanceLifeSpan)
       {
