@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://cpspo8nfqtack"]
+[gd_scene load_steps=10 format=4 uid="uid://cpspo8nfqtack"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_d1xpg"]
 [ext_resource type="PackedScene" uid="uid://dxxi457hqe1un" path="res://Templates/Ladder.tscn" id="3_e1b5v"]
 [ext_resource type="PackedScene" uid="uid://boreadu5xkdde" path="res://Templates/RechargeSpot.tscn" id="4_4834n"]
 [ext_resource type="PackedScene" uid="uid://dhbfwap526xpy" path="res://Templates/Door.tscn" id="5_rxhip"]
+[ext_resource type="AudioStream" uid="uid://c3chfq3cf18o" path="res://Assets/Music/testgwwj76.mp3" id="6_fi77k"]
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok4h"]
@@ -119,3 +120,9 @@ amount = 200
 process_material = SubResource("ParticleProcessMaterial_pnyp5")
 trail_lifetime = 10.0
 trail_sections = 22
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
+stream = ExtResource("6_fi77k")
+volume_db = -4.0
+autoplay = true
+parameters/looping = true
