@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://cpspo8nfqtack"]
+[gd_scene load_steps=9 format=4 uid="uid://cpspo8nfqtack"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_d1xpg"]
 [ext_resource type="PackedScene" uid="uid://dxxi457hqe1un" path="res://Templates/Ladder.tscn" id="3_e1b5v"]
@@ -8,6 +8,40 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok4h"]
 size = Vector2(16, 44)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8igsj"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 145.59
+angle_min = 92.9
+angle_max = 92.9
+direction = Vector3(0, 0, 0)
+spread = 80.899
+initial_velocity_max = 26.88
+gravity = Vector3(-30, 260, 0)
+scale_max = 3.0
+color = Color(0.956863, 0.956863, 0.956863, 0.94902)
+anim_offset_max = 0.3763
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pnyp5"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 145.59
+angle_min = 92.9
+angle_max = 92.9
+direction = Vector3(0, 0, 0)
+spread = 80.899
+initial_velocity_max = 26.88
+gravity = Vector3(-30, 260, 0)
+linear_accel_min = -100.0
+linear_accel_max = 50.54
+radial_accel_min = -37.63
+radial_accel_max = 50.54
+tangential_accel_min = -35.48
+tangential_accel_max = 24.73
+scale_max = 3.0
+color = Color(0.243137, 0.243137, 0.243137, 0.666667)
+anim_offset_max = 0.3763
 
 [node name="Level" instance=ExtResource("1_d1xpg")]
 metadata/_edit_horizontal_guides_ = [-512.0]
@@ -69,3 +103,19 @@ BinarySwitch = NodePath("../Binary")
 [node name="Binary" parent="Interactables" index="5" instance=ExtResource("6_lld3x")]
 position = Vector2(-192, -32)
 scale = Vector2(2, 2)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." index="11"]
+position = Vector2(1557, -795)
+scale = Vector2(10, 10)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_8igsj")
+trail_lifetime = 10.0
+trail_sections = 22
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="12"]
+position = Vector2(1549, -802)
+scale = Vector2(10, 10)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_pnyp5")
+trail_lifetime = 10.0
+trail_sections = 22
