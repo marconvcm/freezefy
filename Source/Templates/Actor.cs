@@ -101,7 +101,6 @@ public partial class Actor : CharacterBody2D
 		}
 	}
 
-
 	public float WalkingSpeed
 	{
 		get { return Meter * WalkingModifier; }
@@ -151,6 +150,10 @@ public partial class Actor : CharacterBody2D
 	private Bullet SpawnBullet() => BulletTemplate.Instantiate<Bullet>();
 
 	internal Godot.Collections.Dictionary<string, Variant> defaultValuesBag = new Godot.Collections.Dictionary<string, Variant>();
+
+	public float FireRefresh { get; set; } = -1.0f;
+
+	public float ShootRefresh { get; set; } = -1.0f;
 
 	public override void _Ready()
 	{
@@ -206,8 +209,10 @@ public partial class Actor : CharacterBody2D
 
 	public void Fire()
 	{
-		if (SkillPoints.CurrentValue > FireCost)
+		if (SkillPoints.CurrentValue > FireCost && ShootRefresh <= 0.0f && !CurrentState.IsDashing())
 		{
+			ShootRefresh = 1.0f;  // Controls animation duration
+			
 			Bullet bullet = SpawnBullet();
 			bullet.Direction = sprite.FlipH ? Vector2.Left : Vector2.Right;
 			bullet.Position = hook.GlobalPosition;
@@ -224,6 +229,7 @@ public partial class Actor : CharacterBody2D
 			fireSound.Play();
 		}
 	}
+
 	public void Damage(float damage, Vector2 direction)
 	{
 		Knockback(direction);
@@ -234,7 +240,13 @@ public partial class Actor : CharacterBody2D
 	{
 		sprite.FlipH = Direction != Vector2.Zero ? Direction.X < 0 : sprite.FlipH;
 
-		if (CurrentState.KeepAtFrame >= 0)
+		// Prioritize shoot animation
+		if (ShootRefresh > 0.0f)
+		{
+			sprite.Play("shoot");
+		}
+		// Otherwise play normal state animations
+		else if (CurrentState.KeepAtFrame >= 0)
 		{
 			sprite.Stop();
 			sprite.Animation = CurrentState.Animation;
@@ -268,6 +280,16 @@ public partial class Actor : CharacterBody2D
 	private void UpdateState()
 	{
 		LastState = CurrentState;
+
+		if (ShootRefresh > 0.0f)
+		{
+			ShootRefresh -= 0.1f;
+			if (ShootRefresh <= 0.0f)
+			{
+				CurrentState = ActorState.Idle;
+			}
+			return;
+		}
 
 		if (IsOnFloor())
 		{
@@ -313,6 +335,27 @@ public partial class Actor : CharacterBody2D
 			{
 				AttackRefresh = -1.0f;
 				HitBox.Disabled = true;
+			}
+		}
+
+		if (FireRefresh > 0.0f)
+		{
+			FireRefresh -= 0.1f;
+			if (FireRefresh <= 0.25f) // Spawn bullet halfway through the animation
+			{
+				Bullet bullet = SpawnBullet();
+				bullet.Direction = sprite.FlipH ? Vector2.Left : Vector2.Right;
+				bullet.Position = hook.GlobalPosition;
+				bullet.Creator = this;
+				bullet.DistanceLifeSpan *= BulletLifeSpanScale;
+				bullet.Speed *= BulletSpeedScale;
+
+				GetParent().AddChild(bullet);
+				if (bullet.Direction == Vector2.Left)
+				{
+					bullet.FlipLeft();
+				}
+				FireRefresh = -1.0f;
 			}
 		}
 

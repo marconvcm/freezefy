@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://78qfhkuup75a"]
+[gd_scene load_steps=7 format=3 uid="uid://78qfhkuup75a"]
 
 [ext_resource type="StyleBox" uid="uid://bs3fjx8nkjdff" path="res://Resources/DialogStyleBox.tres" id="1_3ef1k"]
 [ext_resource type="Script" path="res://Templates/Dialog.cs" id="1_oet44"]
 [ext_resource type="FontFile" uid="uid://ckqc7x0hexwcg" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono-Bold.ttf" id="3_rp7sp"]
 [ext_resource type="Texture2D" uid="uid://uon1xq4avgc4" path="res://Assets/nuface2.png" id="4_oxwgm"]
 [ext_resource type="FontFile" uid="uid://5vd516g30iwy" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono8.ttf" id="4_qcsaf"]
+[ext_resource type="Texture2D" uid="uid://cw42whoy60iv3" path="res://Assets/heroface1.png" id="5_tsyne"]
 
 [node name="Dialog" type="Control"]
 process_mode = 3
@@ -25,6 +26,7 @@ offset_bottom = 331.0
 theme_override_styles/panel = ExtResource("1_3ef1k")
 
 [node name="DialogBanner" type="Label" parent="PanelBanner"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rp7sp")
 theme_override_font_sizes/font_size = 16
@@ -63,12 +65,12 @@ offset_right = 642.0
 offset_bottom = 260.0
 
 [node name="ManFace" type="TextureRect" parent="."]
-visible = false
 layout_mode = 0
-offset_left = 364.0
-offset_top = 4.0
-offset_right = 620.0
-offset_bottom = 260.0
+offset_left = 4.0
+offset_top = 107.0
+offset_right = 260.0
+offset_bottom = 363.0
+texture = ExtResource("5_tsyne")
 
 [node name="Space Hint" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
