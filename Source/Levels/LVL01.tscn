@@ -129,7 +129,7 @@ scale = Vector2(2, 2)
 Next = NodePath("../BinaryUp")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="11"]
-position = Vector2(1557, -684)
+position = Vector2(1528, -992)
 scale = Vector2(10, 10)
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_8igsj")
@@ -137,7 +137,7 @@ trail_lifetime = 10.0
 trail_sections = 22
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="12"]
-position = Vector2(1549, -691)
+position = Vector2(1520, -999)
 scale = Vector2(10, 10)
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_pnyp5")
