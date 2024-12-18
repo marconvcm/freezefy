@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbfwap526xpy" path="res://Templates/Door.tscn" id="5_rxhip"]
 [ext_resource type="PackedScene" uid="uid://cr1wnh7t7xhss" path="res://Templates/Platform.tscn" id="6_eswjp"]
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
-[ext_resource type="AudioStream" uid="uid://bw5rhux0ju38g" path="res://Assets/Music/EclipseFrost_SaveRoomMusic.mp3" id="7_sm2tk"]
+[ext_resource type="AudioStream" uid="uid://dlyiusvhdpjak" path="res://Assets/Music/EclipseFrost_OutsideGameplayMusic.mp3" id="7_ky743"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok4h"]
 size = Vector2(16, 44)
@@ -145,7 +145,7 @@ trail_lifetime = 10.0
 trail_sections = 22
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
-stream = ExtResource("7_sm2tk")
+stream = ExtResource("7_ky743")
 volume_db = -8.0
 autoplay = true
 parameters/looping = true
