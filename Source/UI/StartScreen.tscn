@@ -1,0 +1,187 @@
+[gd_scene load_steps=11 format=3 uid="uid://bid23igoub6wt"]
+
+[ext_resource type="Script" path="res://UI/StartScreen.cs" id="1_36b0q"]
+[ext_resource type="Texture2D" uid="uid://c6p1bb1ymy635" path="res://UI/Assets/BG.png" id="2_yrjvp"]
+[ext_resource type="Texture2D" uid="uid://b07b5q4oahds4" path="res://UI/Assets/LOGO.png" id="3_x0ytw"]
+[ext_resource type="Texture2D" uid="uid://c4wusf73y4hvb" path="res://UI/Assets/SHADOW.png" id="4_cumnx"]
+[ext_resource type="FontFile" uid="uid://cjj8opuxy5aqc" path="res://UI/Assets/Font/Square One/Square One.otf" id="5_4a2ae"]
+[ext_resource type="Texture2D" uid="uid://ssg6otik37iw" path="res://UI/Assets/HEAD.png" id="6_blpnr"]
+[ext_resource type="Script" path="res://Common/FadeOutPlugin.cs" id="7_t2vdq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bppgo"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 145.59
+angle_min = 92.9
+angle_max = 92.9
+direction = Vector3(0, 0, 0)
+spread = 80.899
+initial_velocity_max = 26.88
+gravity = Vector3(-30, 260, 0)
+scale_max = 3.0
+color = Color(0.956863, 0.956863, 0.956863, 0.94902)
+anim_offset_max = 0.3763
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j30ih"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 145.59
+angle_min = 92.9
+angle_max = 92.9
+direction = Vector3(0, 0, 0)
+spread = 80.899
+initial_velocity_max = 26.88
+gravity = Vector3(-30, 260, 0)
+linear_accel_min = -100.0
+linear_accel_max = 50.54
+radial_accel_min = -37.63
+radial_accel_max = 50.54
+tangential_accel_min = -35.48
+tangential_accel_max = 24.73
+scale_max = 3.0
+color = Color(0.243137, 0.243137, 0.243137, 0.666667)
+anim_offset_max = 0.3763
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ubjlv"]
+size = Vector2(640, 480)
+
+[node name="StartScreen" type="Control" node_paths=PackedStringArray("CreditPanel", "Head", "Options", "FadeOut")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_36b0q")
+CreditPanel = NodePath("Credits-Panel")
+Head = NodePath("HEAD")
+Options = [NodePath("New Game"), NodePath("Credits"), NodePath("Exit")]
+FadeOut = NodePath("FadeOutPlugin")
+metadata/_edit_horizontal_guides_ = [265.0, 302.0]
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = ExtResource("2_yrjvp")
+expand_mode = 1
+
+[node name="Logo" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 48.0
+offset_right = 624.0
+offset_bottom = 112.0
+texture = ExtResource("3_x0ytw")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 176.0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = ExtResource("4_cumnx")
+expand_mode = 1
+
+[node name="HEAD" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 247.0
+offset_right = 444.0
+offset_bottom = 275.0
+texture = ExtResource("6_blpnr")
+
+[node name="New Game" type="Label" parent="."]
+layout_mode = 2
+offset_left = 458.0
+offset_top = 245.0
+offset_right = 624.0
+offset_bottom = 278.0
+theme_override_colors/font_color = Color(1, 0.984314, 0.760784, 1)
+theme_override_fonts/font = ExtResource("5_4a2ae")
+theme_override_font_sizes/font_size = 32
+text = "NEW GAME"
+horizontal_alignment = 2
+
+[node name="Credits" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+offset_left = 486.0
+offset_top = 282.0
+offset_right = 624.0
+offset_bottom = 315.0
+theme_override_colors/font_color = Color(1, 0.984314, 0.760784, 1)
+theme_override_fonts/font = ExtResource("5_4a2ae")
+theme_override_font_sizes/font_size = 32
+text = "CREDITS
+"
+horizontal_alignment = 2
+
+[node name="Exit" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0.588235)
+layout_mode = 2
+offset_left = 552.0
+offset_top = 319.0
+offset_right = 624.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(1, 0.984314, 0.760784, 1)
+theme_override_fonts/font = ExtResource("5_4a2ae")
+theme_override_font_sizes/font_size = 32
+text = "EXIT"
+horizontal_alignment = 2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(330, -469)
+scale = Vector2(10, 10)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_bppgo")
+trail_lifetime = 10.0
+trail_sections = 22
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="."]
+position = Vector2(322, -476)
+scale = Vector2(10, 10)
+amount = 200
+process_material = SubResource("ParticleProcessMaterial_j30ih")
+trail_lifetime = 10.0
+trail_sections = 22
+
+[node name="FadeOutPlugin" type="Node" parent="." node_paths=PackedStringArray("Overlay")]
+script = ExtResource("7_t2vdq")
+Overlay = NodePath("Overlay")
+
+[node name="Overlay" type="TextureRect" parent="FadeOutPlugin"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_ubjlv")
+
+[node name="Credits-Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 120.0
+offset_top = 90.0
+offset_right = 520.0
+offset_bottom = 390.0
+
+[node name="Text" type="RichTextLabel" parent="Credits-Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Marcos Vinicius Marcon (marconvcm)
+Game Design / UI / Programming
+
+Muttzilla (darth_mutt)
+Game Design / Art / Music
+
+Lisa (hanguyenlisa12)
+Game Design / Art"
+fit_content = true
