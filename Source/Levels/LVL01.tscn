@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://boreadu5xkdde" path="res://Templates/RechargeSpot.tscn" id="4_4834n"]
 [ext_resource type="PackedScene" uid="uid://dhbfwap526xpy" path="res://Templates/Door.tscn" id="5_rxhip"]
 [ext_resource type="PackedScene" uid="uid://cr1wnh7t7xhss" path="res://Templates/Platform.tscn" id="6_eswjp"]
-[ext_resource type="AudioStream" uid="uid://c3chfq3cf18o" path="res://Assets/Music/testgwwj76.mp3" id="6_fi77k"]
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
+[ext_resource type="AudioStream" uid="uid://dlyiusvhdpjak" path="res://Assets/Music/EclipseFrost_OutsideGameplayMusic.mp3" id="7_k0q3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok4h"]
 size = Vector2(16, 44)
@@ -129,7 +129,7 @@ scale = Vector2(2, 2)
 Next = NodePath("../BinaryUp")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="." index="11"]
-position = Vector2(1557, -795)
+position = Vector2(1557, -684)
 scale = Vector2(10, 10)
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_8igsj")
@@ -137,7 +137,7 @@ trail_lifetime = 10.0
 trail_sections = 22
 
 [node name="GPUParticles2D2" type="GPUParticles2D" parent="." index="12"]
-position = Vector2(1549, -802)
+position = Vector2(1549, -691)
 scale = Vector2(10, 10)
 amount = 200
 process_material = SubResource("ParticleProcessMaterial_pnyp5")
@@ -145,9 +145,8 @@ trail_lifetime = 10.0
 trail_sections = 22
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="13"]
-stream = ExtResource("6_fi77k")
-volume_db = -4.0
+stream = ExtResource("7_k0q3g")
+volume_db = -8.0
 autoplay = true
-parameters/looping = true
 
 [editable path="Interactables/Platform"]
