@@ -176,6 +176,7 @@ trail_sections = 22
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="16"]
 stream = ExtResource("7_ky743")
 volume_db = -8.0
+autoplay = true
 parameters/looping = true
 
 [node name="Polygon2D" type="Polygon2D" parent="." index="17"]
