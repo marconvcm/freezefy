@@ -1,12 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://bid23igoub6wt"]
+[gd_scene load_steps=12 format=3 uid="uid://bid23igoub6wt"]
 
 [ext_resource type="Script" path="res://UI/StartScreen.cs" id="1_36b0q"]
-[ext_resource type="Texture2D" uid="uid://c6p1bb1ymy635" path="res://UI/Assets/BG.png" id="2_yrjvp"]
+[ext_resource type="Texture2D" uid="uid://bpem2dpuk4y5a" path="res://UI/Assets/GWJ76splash.png" id="2_22431"]
 [ext_resource type="Texture2D" uid="uid://b07b5q4oahds4" path="res://UI/Assets/LOGO.png" id="3_x0ytw"]
 [ext_resource type="Texture2D" uid="uid://c4wusf73y4hvb" path="res://UI/Assets/SHADOW.png" id="4_cumnx"]
 [ext_resource type="FontFile" uid="uid://cjj8opuxy5aqc" path="res://UI/Assets/Font/Square One/Square One.otf" id="5_4a2ae"]
 [ext_resource type="Texture2D" uid="uid://ssg6otik37iw" path="res://UI/Assets/HEAD.png" id="6_blpnr"]
 [ext_resource type="Script" path="res://Common/FadeOutPlugin.cs" id="7_t2vdq"]
+[ext_resource type="AudioStream" uid="uid://biyhmtoh67o54" path="res://Assets/Music/EclipseFrost_ThemeSong.mp3" id="8_w42ir"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bppgo"]
 particle_flag_disable_z = true
@@ -63,7 +64,7 @@ metadata/_edit_horizontal_guides_ = [265.0, 302.0]
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 480.0
-texture = ExtResource("2_yrjvp")
+texture = ExtResource("2_22431")
 expand_mode = 1
 
 [node name="Logo" type="TextureRect" parent="."]
@@ -185,3 +186,9 @@ Game Design / Art / Music
 Lisa (hanguyenlisa12)
 Game Design / Art"
 fit_content = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w42ir")
+volume_db = -8.0
+autoplay = true
+parameters/looping = true
