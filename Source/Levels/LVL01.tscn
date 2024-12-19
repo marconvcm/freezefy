@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cpspo8nfqtack"]
+[gd_scene load_steps=14 format=4 uid="uid://cpspo8nfqtack"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_d1xpg"]
 [ext_resource type="Texture2D" uid="uid://bl8qv6fi7y6gd" path="res://Assets/Level Layout/LVL-01-Background.png" id="2_86hgu"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
 [ext_resource type="AudioStream" uid="uid://dlyiusvhdpjak" path="res://Assets/Music/EclipseFrost_OutsideGameplayMusic.mp3" id="7_ky743"]
 [ext_resource type="Texture2D" uid="uid://byprqnsgytxaw" path="res://Assets/Level Layout/LVL01-Foreground.png" id="8_v3nye"]
+[ext_resource type="Texture2D" uid="uid://b4vw2bk4ppdoo" path="res://Assets/Level Layout/LVL01-Rock.png" id="10_4ni2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ok4h"]
 size = Vector2(16, 44)
@@ -50,13 +51,13 @@ anim_offset_max = 0.3763
 [node name="Level" instance=ExtResource("1_d1xpg")]
 metadata/_edit_horizontal_guides_ = [-512.0]
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="0"]
+[node name="ParallaxBackground2" type="ParallaxBackground" parent="." index="0"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" index="0"]
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground2" index="0"]
 motion_scale = Vector2(0.5, 0.5)
 motion_offset = Vector2(100, 300)
 
-[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" index="0"]
+[node name="Background" type="Sprite2D" parent="ParallaxBackground2/ParallaxLayer" index="0"]
 position = Vector2(854, -398)
 texture = ExtResource("2_86hgu")
 
@@ -165,10 +166,124 @@ volume_db = -8.0
 autoplay = true
 parameters/looping = true
 
-[node name="Foreground" type="Sprite2D" parent="." index="15"]
+[node name="Polygon2D" type="Polygon2D" parent="." index="15"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(1898, -278, 1897, -193, 2159, -56, 2883, -47, 2882, -445, 2811, -436, 2709, -382, 2587, -368, 2482, -311, 2363, -311, 2252, -242, 2016, -248)
+
+[node name="Foreground" type="Sprite2D" parent="." index="16"]
 z_index = 1000
 position = Vector2(937, -239.35)
 scale = Vector2(1.09634, 1.12825)
 texture = ExtResource("8_v3nye")
+
+[node name="Rocks" type="Node2D" parent="." index="17"]
+z_index = 1001
+position = Vector2(0, -48)
+
+[node name="Lvl01-rock9" type="Sprite2D" parent="Rocks" index="0"]
+z_index = 1000
+position = Vector2(1644, 93)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock11" type="Sprite2D" parent="Rocks" index="1"]
+z_index = 1000
+position = Vector2(1786, 142)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock13" type="Sprite2D" parent="Rocks" index="2"]
+z_index = 1000
+position = Vector2(564, 108)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock14" type="Sprite2D" parent="Rocks" index="3"]
+z_index = 1000
+position = Vector2(834, 105)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock15" type="Sprite2D" parent="Rocks" index="4"]
+z_index = 1000
+position = Vector2(1167, 109)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock16" type="Sprite2D" parent="Rocks" index="5"]
+z_index = 1000
+position = Vector2(2804, 74)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock17" type="Sprite2D" parent="Rocks" index="6"]
+z_index = 1000
+position = Vector2(1614, -6)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock18" type="Sprite2D" parent="Rocks" index="7"]
+z_index = 1000
+position = Vector2(2880, 130)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock19" type="Sprite2D" parent="Rocks" index="8"]
+z_index = 1000
+position = Vector2(1629, 174)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock20" type="Sprite2D" parent="Rocks" index="9"]
+z_index = 1000
+position = Vector2(1867, 40)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock21" type="Sprite2D" parent="Rocks" index="10"]
+z_index = 1000
+position = Vector2(1998, 89)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock" type="Sprite2D" parent="Rocks" index="11"]
+z_index = 1000
+position = Vector2(-500, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock10" type="Sprite2D" parent="Rocks" index="12"]
+z_index = 1000
+position = Vector2(1478, 86)
+scale = Vector2(1.00515, 1)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock2" type="Sprite2D" parent="Rocks" index="13"]
+z_index = 1000
+position = Vector2(-240, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock3" type="Sprite2D" parent="Rocks" index="14"]
+z_index = 1000
+position = Vector2(59, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock4" type="Sprite2D" parent="Rocks" index="15"]
+z_index = 1000
+position = Vector2(391, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock5" type="Sprite2D" parent="Rocks" index="16"]
+z_index = 1000
+position = Vector2(710, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock6" type="Sprite2D" parent="Rocks" index="17"]
+z_index = 1000
+position = Vector2(970, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock7" type="Sprite2D" parent="Rocks" index="18"]
+z_index = 1000
+position = Vector2(1269, 167)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock8" type="Sprite2D" parent="Rocks" index="19"]
+z_index = 1000
+position = Vector2(2186, 151)
+texture = ExtResource("10_4ni2q")
+
+[node name="Lvl01-rock12" type="Sprite2D" parent="Rocks" index="20"]
+z_index = 1000
+position = Vector2(2015, 181)
+texture = ExtResource("10_4ni2q")
 
 [editable path="Interactables/Platform"]
