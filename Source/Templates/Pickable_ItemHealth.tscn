@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7pjbqiqpr861"]
+
+[ext_resource type="PackedScene" uid="uid://7ik8314ahjnv" path="res://Templates/Pickable.tscn" id="1_km2w6"]
+[ext_resource type="Resource" uid="uid://bhewlgrvmd2xl" path="res://Resources/Item/Item_FirstAid.tres" id="2_iwag2"]
+[ext_resource type="Texture2D" uid="uid://m06u88gg4y2m" path="res://Assets/3th Party/Food_Icons/15_burger.png" id="3_qblva"]
+
+[node name="Pickable" instance=ExtResource("1_km2w6")]
+position = Vector2(0, 0)
+pickableResource = ExtResource("2_iwag2")
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource("3_qblva")
+region_enabled = false

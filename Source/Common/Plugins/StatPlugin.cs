@@ -61,6 +61,12 @@ public partial class StatPlugin : Node
       CurrentValue = DefaultValue;
    }
 
+   public StatPlugin Apply(float fraction)
+   {
+      CurrentValue = Mathf.Clamp(CurrentValue + (fraction * MaxValue), MinValue, MaxValue);
+      return this;
+   }
+
    public StatPlugin Add(float value)
    {
       CurrentValue = Mathf.Clamp(CurrentValue + value, MinValue, MaxValue);

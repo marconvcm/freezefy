@@ -1,9 +1,13 @@
+using System;
 using Godot;
 
 public partial class Pickable : Node2D
 {
     [Export]
     public Sprite2D sprite;
+
+    [Export]
+    public PickableResource pickableResource;
 
     [Export]
     public Area2D area;
@@ -17,6 +21,7 @@ public partial class Pickable : Node2D
     {
         startPosition = sprite.Position;
         endPosition = new Vector2(sprite.Position.X, sprite.Position.Y - 5);
+        area.BodyEntered += OnBodyEntered;
     }
 
     public override void _PhysicsProcess(double delta)
@@ -28,5 +33,14 @@ public partial class Pickable : Node2D
 
         // Interpolate the position to create the floating effect
         sprite.Position = startPosition.Lerp(endPosition, t);
+    }
+
+    private void OnBodyEntered(Node2D body)
+    {
+        if (body is Player player)
+        {
+            player.Collect(pickableResource);
+            QueueFree();
+        }
     }
 }

@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dkvtiny5atrrj"]
+
+[ext_resource type="Shader" path="res://Assets/Effects/green_flash_material.gdshader" id="1_hvneg"]
+
+[resource]
+shader = ExtResource("1_hvneg")

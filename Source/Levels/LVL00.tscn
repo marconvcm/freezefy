@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=4 uid="uid://3oq1fjunm0wb"]
+[gd_scene load_steps=5 format=4 uid="uid://3oq1fjunm0wb"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_85o2u"]
 [ext_resource type="Script" path="res://Levels/LVL00.cs" id="2_n3rjm"]
+[ext_resource type="PackedScene" uid="uid://b7pjbqiqpr861" path="res://Templates/Pickable_ItemHealth.tscn" id="3_l2u8g"]
+[ext_resource type="PackedScene" uid="uid://55ur3less1rg" path="res://Templates/Pickable_ItemKey.tscn" id="4_011rg"]
 
 [node name="Level" instance=ExtResource("1_85o2u")]
 script = ExtResource("2_n3rjm")
@@ -23,3 +25,9 @@ position = Vector2(-768, -512)
 
 [node name="BottomRight" parent="." index="9"]
 position = Vector2(1024, 256)
+
+[node name="Pickable" parent="Interactables" index="0" instance=ExtResource("3_l2u8g")]
+position = Vector2(-384, 0)
+
+[node name="Pickable" parent="." index="11" instance=ExtResource("4_011rg")]
+position = Vector2(-272, 0)

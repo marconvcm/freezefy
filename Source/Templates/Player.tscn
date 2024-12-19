@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dwn8dmb3sa17j"]
+[gd_scene load_steps=20 format=3 uid="uid://dwn8dmb3sa17j"]
 
 [ext_resource type="PackedScene" uid="uid://bkv5nljjr0t6v" path="res://Templates/Actor.tscn" id="1_mivhe"]
 [ext_resource type="Script" path="res://Templates/Player.cs" id="2_wbjk8"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Common/Plugins/TweenPluginResource.cs" id="4_mlpj1"]
 [ext_resource type="Script" path="res://Common/Plugins/StatPlugin.cs" id="5_avhbo"]
 [ext_resource type="Script" path="res://Common/Plugins/StatProgressBarPlugin.cs" id="6_g7b44"]
+[ext_resource type="Script" path="res://Common/Plugins/FlashPlugin.cs" id="7_5fudv"]
+[ext_resource type="AudioStream" uid="uid://coh637vclaoyf" path="res://Assets/SFX/coin-pickup-98269.mp3" id="8_2wdc5"]
+[ext_resource type="Material" uid="uid://dkvtiny5atrrj" path="res://Assets/Effects/green_flash_material.tres" id="8_66e1v"]
 
 [sub_resource type="Resource" id="Resource_ltout"]
 script = ExtResource("4_mlpj1")
@@ -44,13 +47,14 @@ texture = SubResource("GradientTexture1D_w7tmu")
 radius = 36.0
 height = 72.0
 
-[node name="Player" node_paths=PackedStringArray("HintTweenPlugin", "camera", "ColdPoints", "FrameStopperPlugin") instance=ExtResource("1_mivhe")]
+[node name="Player" node_paths=PackedStringArray("HintTweenPlugin", "camera", "ColdPoints", "pickupSound", "HealthFlashPlugin") instance=ExtResource("1_mivhe")]
 script = ExtResource("2_wbjk8")
 HintTweenPlugin = NodePath("Plugins/HintTweenPlugin")
 textFragment = null
 camera = NodePath("Camera")
 ColdPoints = NodePath("Plugins/ColdPlugin")
-FrameStopperPlugin = NodePath("")
+pickupSound = NodePath("Audio/Pickup")
+HealthFlashPlugin = NodePath("Plugins/HealthFlashPlugin")
 FireCost = 10.0
 DashCost = 20.0
 BulletSpeedScale = 1.05
@@ -72,6 +76,11 @@ RechargeRate = 1.0
 script = ExtResource("6_g7b44")
 ProgressBar = NodePath("../../ColdBar")
 Stat = NodePath("../ColdPlugin")
+
+[node name="HealthFlashPlugin" type="Node" parent="Plugins" index="7" node_paths=PackedStringArray("Sprite")]
+script = ExtResource("7_5fudv")
+FlashMaterial = ExtResource("8_66e1v")
+Sprite = NodePath("../../Sprite")
 
 [node name="Shape" parent="." index="1"]
 z_index = 10
@@ -162,3 +171,6 @@ text = "[center]![/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
+
+[node name="Pickup" type="AudioStreamPlayer2D" parent="Audio" index="3"]
+stream = ExtResource("8_2wdc5")

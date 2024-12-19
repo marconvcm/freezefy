@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bkv5nljjr0t6v"]
+[gd_scene load_steps=23 format=3 uid="uid://bkv5nljjr0t6v"]
 
 [ext_resource type="Script" path="res://Templates/Actor.cs" id="1_4kan6"]
 [ext_resource type="Script" path="res://Common/Plugins/StatPlugin.cs" id="2_8d3bd"]
@@ -7,6 +7,7 @@
 [ext_resource type="SpriteFrames" uid="uid://djs8tgkx8bsww" path="res://Resources/Knight.tres" id="3_uskxw"]
 [ext_resource type="Script" path="res://Common/Plugins/FlashPlugin.cs" id="4_4aidj"]
 [ext_resource type="SpriteFrames" uid="uid://cdnac4umnov2v" path="res://Resources/Slash.tres" id="4_lkds2"]
+[ext_resource type="Material" uid="uid://c88q6pkhh3vl" path="res://Assets/Effects/white_flash_material.tres" id="5_x44yx"]
 [ext_resource type="AudioStream" uid="uid://dxjkby0k4iv1j" path="res://Assets/SFX/fire.mp3" id="7_5v6dc"]
 [ext_resource type="AudioStream" uid="uid://bu8rsl6mjsuem" path="res://Assets/SFX/slash.mp3" id="8_1grad"]
 [ext_resource type="AudioStream" uid="uid://5kf3vgilqx6r" path="res://Assets/SFX/landing.mp3" id="9_qpfho"]
@@ -94,6 +95,7 @@ Stat = NodePath("../SPPlugin")
 
 [node name="FlashPlugin" type="Node" parent="Plugins" node_paths=PackedStringArray("Sprite")]
 script = ExtResource("4_4aidj")
+FlashMaterial = ExtResource("5_x44yx")
 Sprite = NodePath("../../Sprite")
 
 [node name="Shape" type="CollisionShape2D" parent="."]
