@@ -190,5 +190,4 @@ fit_content = true
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_w42ir")
 volume_db = -8.0
-autoplay = true
 parameters/looping = true
