@@ -10,6 +10,7 @@ script = ExtResource("2_n3rjm")
 
 [node name="Env" parent="." index="0"]
 visible = false
+color = Color(0.340339, 0.340339, 0.340339, 1)
 
 [node name="UILayer" parent="." index="1"]
 visible = false

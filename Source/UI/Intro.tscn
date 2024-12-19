@@ -1,0 +1,358 @@
+[gd_scene load_steps=12 format=3 uid="uid://dfhellb8gfgnw"]
+
+[ext_resource type="AudioStream" uid="uid://b6galvmi2ta74" path="res://UI/intro/intro-music.mp3" id="1_kd3tj"]
+[ext_resource type="Texture2D" uid="uid://yjp342r3nwlm" path="res://UI/intro/krakaton-games.png" id="1_va1hc"]
+[ext_resource type="Script" path="res://UI/Intro.cs" id="1_vip67"]
+[ext_resource type="Texture2D" uid="uid://uu6ds61lk11g" path="res://UI/intro/godot-logo.png" id="2_xqlle"]
+
+[sub_resource type="Gradient" id="Gradient_u6w1a"]
+colors = PackedColorArray(0.12549, 0.12549, 0.12549, 1, 0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8gi34"]
+gradient = SubResource("Gradient_u6w1a")
+
+[sub_resource type="Animation" id="Animation_i3cdk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../STEP1/logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(176, 201.249)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../STEP1/logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../STEP1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../STEP2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../STEP2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../STEP2/godot-logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../STEP2/powered_by_label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../STEP2/godot-logo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(420, 311)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../STEP2/powered_by_label:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(439, 289)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../STEP1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_r336n"]
+resource_name = "intro"
+length = 8.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../STEP1/logo:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.846667, 1.88, 2.94846, 3.69846),
+"transitions": PackedFloat32Array(1, 0.1, 1, 0.1, 4.9),
+"update": 0,
+"values": [Vector2(352, 397.786), Vector2(352, 427), Vector2(352, 322.5), Vector2(352, 322.5), Vector2(352, 272.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../STEP1/logo:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.88, 1.88, 2.95846, 3.71847),
+"transitions": PackedFloat32Array(1, 0.5, 4.9, 0.0820576, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../STEP1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.42405, 4.10239),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../STEP2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.46017, 8.23),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../STEP2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.46017, 4.71044),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../STEP2/godot-logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4.37485, 6.03427, 6.76607, 7.19835),
+"transitions": PackedFloat32Array(0.1, 4.9, 0.1, 4.9),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../STEP2/powered_by_label:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.97659, 4.75679, 6.76607, 7.16212),
+"transitions": PackedFloat32Array(0.1, 1, 0.1, 4.9),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("../STEP2/godot-logo:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(4.37485, 4.86053, 6.73607, 7.19835),
+"transitions": PackedFloat32Array(0.1, 1, 0.1, 4.9),
+"update": 0,
+"values": [Vector2(320, 311), Vector2(420, 311), Vector2(430, 311), Vector2(500, 311)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../STEP2/powered_by_label:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(3.97441, 4.75679, 6.76607, 7.16212),
+"transitions": PackedFloat32Array(0.1, 4.9, 0.1, 4.9),
+"update": 0,
+"values": [Vector2(439, 209), Vector2(439, 289), Vector2(439, 289), Vector2(409, 289)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../STEP1:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 5.63),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_10wbh"]
+_data = {
+"RESET": SubResource("Animation_i3cdk"),
+"intro": SubResource("Animation_r336n")
+}
+
+[sub_resource type="Gradient" id="Gradient_b4a0k"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_xr0pn"]
+gradient = SubResource("Gradient_b4a0k")
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -320.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vip67")
+
+[node name="MainBackground" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = SubResource("GradientTexture1D_8gi34")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../BackgroundAudio")
+libraries = {
+"": SubResource("AnimationLibrary_10wbh")
+}
+autoplay = "intro"
+
+[node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_kd3tj")
+pitch_scale = 2.0
+autoplay = true
+
+[node name="STEP1" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="background" type="TextureRect" parent="STEP1"]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = SubResource("GradientTexture1D_xr0pn")
+
+[node name="logo" type="TextureRect" parent="STEP1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -38.7505
+offset_right = 144.0
+offset_bottom = 38.7505
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_va1hc")
+expand_mode = 1
+
+[node name="STEP2" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 480.0
+
+[node name="godot-logo" type="TextureRect" parent="STEP2"]
+texture_filter = 3
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 71.0
+offset_right = 540.014
+offset_bottom = 249.001
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xqlle")
+expand_mode = 1
+
+[node name="powered_by_label" type="RichTextLabel" parent="STEP2"]
+layout_mode = 0
+offset_left = 439.0
+offset_top = 289.0
+offset_right = 629.001
+offset_bottom = 354.0
+text = "powered by"
