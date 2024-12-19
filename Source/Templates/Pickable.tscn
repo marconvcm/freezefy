@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://7ik8314ahjnv"]
+
+[ext_resource type="Script" path="res://Templates/Pickable.cs" id="1_nvx02"]
+[ext_resource type="Texture2D" uid="uid://dircuv7741v2s" path="res://Assets/3th Party/Legacy Fantasy - Debug Map/Debug Map - Tiles.png" id="2_rw3vn"]
+
+[sub_resource type="Curve" id="Curve_mxs4v"]
+_data = [Vector2(0.491987, 0.666306), 0.0, 0.0, 0, 0, Vector2(0.871795, 0.0832207), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3fl7v"]
+curve = SubResource("Curve_mxs4v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3wtcw"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 1, 1)
+gravity = Vector3(0, -90, 0)
+alpha_curve = SubResource("CurveTexture_3fl7v")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2dgs0"]
+radius = 16.0
+
+[node name="Pickable" type="Node2D" node_paths=PackedStringArray("sprite", "area")]
+position = Vector2(96, 80)
+script = ExtResource("1_nvx02")
+sprite = NodePath("Sprite")
+area = NodePath("Area")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_rw3vn")
+region_enabled = true
+region_rect = Rect2(192, 208, 16, 16)
+
+[node name="Particles" type="GPUParticles2D" parent="."]
+process_material = SubResource("ParticleProcessMaterial_3wtcw")
+
+[node name="Area" type="Area2D" parent="."]
+
+[node name="Shape" type="CollisionShape2D" parent="Area"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_2dgs0")
