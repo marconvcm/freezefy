@@ -40,7 +40,16 @@ public partial class Player : Actor
 	  camera.LimitRight = (int)bottomRightLimit.Position.X;
 	  camera.LimitBottom = (int)bottomRightLimit.Position.Y;
 
+	  // Setup frost overlay properties
 	  FrostOverlay.Modulate = new Color(1, 1, 1, 0);
+	  FrostOverlay.AnchorLeft = 0;
+	  FrostOverlay.AnchorTop = 0;
+	  FrostOverlay.AnchorRight = 1;
+	  FrostOverlay.AnchorBottom = 1;
+	  FrostOverlay.Size = GetViewport().GetVisibleRect().Size;
+	  FrostOverlay.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
+	  FrostOverlay.StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered;
+	  
 	  ColdPoints.ValueChanged += UpdateFrostEffect;
 	  GD.Print("Frost overlay setup complete");
 
