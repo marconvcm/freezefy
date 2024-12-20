@@ -31,7 +31,7 @@ public partial class StartScreen : Control
 
 	public override void _Ready()
 	{
-		themeStream = GD.Load<AudioStream>("res://Assets/Music/EclipseFrost_ThemeSong.mp3");
+		//themeStream = GD.Load<AudioStream>("res://Assets/Music/EclipseFrost_ThemeSong.mp3");
 		beginGameStream = GD.Load<AudioStream>("res://Assets/Music/SFX/EclipseFrost_BgnGame.mp3");
 		menuSelectStream = GD.Load<AudioStream>("res://Assets/Music/SFX/EclipseFrost_MenuSelect.mp3");
 
