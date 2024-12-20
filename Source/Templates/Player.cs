@@ -42,6 +42,7 @@ public partial class Player : Actor
 	  camera.LimitRight = (int)bottomRightLimit.Position.X;
 	  camera.LimitBottom = (int)bottomRightLimit.Position.Y;
 
+<<<<<<< Updated upstream
 	  // Create frost overlay programmatically
 	  frostOverlay = new TextureRect();
 	  frostOverlay.Texture = GD.Load<Texture2D>("res://Assets/FROST.png");
@@ -99,6 +100,35 @@ public partial class Player : Actor
 	  float alpha = Mathf.Clamp(coldValue / ColdPoints.MaxValue, 0, 1);
 	  frostOverlay.Modulate = new Color(1, 1, 1, alpha);
 	  GD.Print($"New alpha: {alpha}");
+=======
+	  Sensor.BodyEntered += (body) =>
+	  {
+		 if (body is Attach artillery)
+		 {
+			HintTweenPlugin.Play();
+			this.Mount = artillery;
+		 }
+	  };
+
+	  Sensor.BodyExited += (body) =>
+	  {
+		 if (body is Attach artillery)
+		 {
+			HintTweenPlugin.Stop();
+			this.Mount = null;
+		 }
+	  };
+
+	  Sensor.AreaEntered += (area) =>
+	  {
+
+	  };
+
+	  Sensor.AreaExited += (area) =>
+	  {
+
+	  };
+>>>>>>> Stashed changes
    }
 
    public override void _Input(InputEvent @event)
