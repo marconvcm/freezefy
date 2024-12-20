@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bid23igoub6wt"]
+[gd_scene load_steps=14 format=3 uid="uid://bid23igoub6wt"]
 
 [ext_resource type="Script" path="res://UI/StartScreen.cs" id="1_36b0q"]
 [ext_resource type="Texture2D" uid="uid://bpem2dpuk4y5a" path="res://UI/Assets/GWJ76splash.png" id="2_22431"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ssg6otik37iw" path="res://UI/Assets/HEAD.png" id="6_blpnr"]
 [ext_resource type="Script" path="res://Common/FadeOutPlugin.cs" id="7_t2vdq"]
 [ext_resource type="AudioStream" uid="uid://biyhmtoh67o54" path="res://Assets/Music/EclipseFrost_ThemeSong.mp3" id="8_w42ir"]
+[ext_resource type="AudioStream" uid="uid://dpai1x6g4eb2o" path="res://Assets/Music/SFX/EclipseFrost_BgnGame.mp3" id="9_qwvpd"]
+[ext_resource type="AudioStream" uid="uid://xpry16qfu5cw" path="res://Assets/Music/SFX/EclipseFrost_MenuSelect.mp3" id="10_7d24s"]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bppgo"]
 particle_flag_disable_z = true
@@ -187,7 +189,15 @@ Lisa (hanguyenlisa12)
 Game Design / Art"
 fit_content = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ThemeSong" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_w42ir")
 volume_db = -8.0
 parameters/looping = true
+
+[node name="BeginGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_qwvpd")
+volume_db = -8.0
+
+[node name="MenuSel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7d24s")
+volume_db = -8.0
