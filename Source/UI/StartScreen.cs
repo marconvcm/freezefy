@@ -39,9 +39,9 @@ public partial class StartScreen : Control
 		audioPlayer.Finished += OnAudioFinished;
 		AddChild(audioPlayer);
 		
-		_actions.Add(0, () => 
+		_actions.Add(0, async () => 
 		{
-			FadeOut.FadeOut();
+			await FadeOut.FadeOut();
 			audioPlayer.Stop();
 			audioPlayer.Stream = beginGameStream;
 			audioPlayer.VolumeDb = -8;
