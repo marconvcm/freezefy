@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b63xvmfkyawyk"
+path="res://.godot/imported/light saber.mp3-fd7a290be9179ce650863f8794159e14.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/SFX/light saber.mp3"
+dest_files=["res://.godot/imported/light saber.mp3-fd7a290be9179ce650863f8794159e14.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

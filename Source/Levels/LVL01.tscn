@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=4 uid="uid://cpspo8nfqtack"]
+[gd_scene load_steps=27 format=4 uid="uid://cpspo8nfqtack"]
 
 [ext_resource type="PackedScene" uid="uid://bw42t61po7yy3" path="res://Levels/Level_Tmpl.tscn" id="1_d1xpg"]
 [ext_resource type="Texture2D" uid="uid://sgqgl3mecvj8" path="res://Assets/Level Layout/BACKGROUND.PNG" id="2_fbrxy"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://Levels/Init.cs" id="14_6qd28"]
 [ext_resource type="Resource" uid="uid://b3ofrywmu2lap" path="res://Resources/000_intro.tres" id="15_b6w00"]
 [ext_resource type="Script" path="res://Common/TextFragment.cs" id="15_fkpl8"]
+[ext_resource type="AudioStream" uid="uid://bt3rbc66fa6bs" path="res://Assets/Music/SFX/GWJ75_WindTest2.mp3" id="20_6lrap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_df2yt"]
 size = Vector2(406, 242)
@@ -63,7 +64,7 @@ Text = "Forgotten: I do need to find the keycard to open the door"
 Speaker = "Forgotten"
 ShowAllLines = false
 TypingSpeed = 1.0
-PauseGame = false
+PauseGame = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6vkjh"]
 size = Vector2(58, 149)
@@ -260,6 +261,11 @@ position = Vector2(1440, -720)
 [node name="Init" type="Node" parent="." index="20"]
 script = ExtResource("14_6qd28")
 initialDialog = ExtResource("15_b6w00")
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="." index="21"]
+stream = ExtResource("20_6lrap")
+autoplay = true
+bus = &"SFX"
 
 [editable path="Interactables/RechargeSpot3"]
 [editable path="Interactables/Platform"]

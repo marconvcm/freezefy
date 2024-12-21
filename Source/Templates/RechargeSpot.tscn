@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://boreadu5xkdde"]
+[gd_scene load_steps=10 format=3 uid="uid://boreadu5xkdde"]
 
 [ext_resource type="Texture2D" uid="uid://c6u65v53hqpe7" path="res://Assets/Barrel.png" id="1_71lgy"]
 [ext_resource type="Script" path="res://Templates/RechargeSpot.cs" id="1_dpb35"]
 [ext_resource type="Texture2D" uid="uid://ec2ued8i6bmc" path="res://Assets/Light.png" id="1_ntslw"]
+[ext_resource type="AudioStream" uid="uid://cojxm4a7cbqi" path="res://Assets/Music/SFX/GWJ1.1_Fire.mp3" id="4_qbhlq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i43ic"]
 radius = 48.0104
@@ -78,3 +79,8 @@ position = Vector2(0, -14)
 scale = Vector2(1.2, 1.2)
 amount = 161
 process_material = SubResource("ParticleProcessMaterial_qnp81")
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_qbhlq")
+autoplay = true
+max_distance = 250.0

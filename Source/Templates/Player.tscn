@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dwn8dmb3sa17j"]
+[gd_scene load_steps=26 format=3 uid="uid://dwn8dmb3sa17j"]
 
 [ext_resource type="PackedScene" uid="uid://bkv5nljjr0t6v" path="res://Templates/Actor.tscn" id="1_mivhe"]
 [ext_resource type="Script" path="res://Templates/Player.cs" id="2_wbjk8"]
@@ -13,6 +13,8 @@
 [ext_resource type="Script" path="res://Common/Plugins/FlashPlugin.cs" id="7_5fudv"]
 [ext_resource type="AudioStream" uid="uid://coh637vclaoyf" path="res://Assets/SFX/coin-pickup-98269.mp3" id="8_2wdc5"]
 [ext_resource type="Material" uid="uid://dkvtiny5atrrj" path="res://Assets/Effects/green_flash_material.tres" id="8_66e1v"]
+[ext_resource type="AudioStream" uid="uid://danlomsy507wc" path="res://Assets/Music/SFX/GWJ1.1_LaserGun.mp3" id="13_wuhqe"]
+[ext_resource type="AudioStream" uid="uid://b63xvmfkyawyk" path="res://Assets/Music/SFX/light saber.mp3" id="13_x5m8y"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qba7t"]
 size = Vector2(640, 480)
@@ -64,7 +66,6 @@ HealthFlashPlugin = NodePath("Plugins/HealthFlashPlugin")
 FrostOverlay = NodePath("UILayer/FrostOverlay")
 FireCost = 10.0
 DashCost = 20.0
-DJumpCost = 20.0
 BulletSpeedScale = 1.05
 
 [node name="UILayer" type="CanvasLayer" parent="." index="0"]
@@ -203,6 +204,12 @@ text = "[center]![/center]"
 fit_content = true
 scroll_active = false
 autowrap_mode = 2
+
+[node name="Fire" parent="Audio" index="0"]
+stream = ExtResource("13_wuhqe")
+
+[node name="Slash" parent="Audio" index="1"]
+stream = ExtResource("13_x5m8y")
 
 [node name="Pickup" type="AudioStreamPlayer2D" parent="Audio" index="3"]
 stream = ExtResource("8_2wdc5")
