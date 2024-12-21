@@ -30,6 +30,11 @@ public partial class Player : Actor
    [Export]
    public TextureRect FrostOverlay;
 
+   private float lastDamageTime = 0f;
+   private const float DAMAGE_INTERVAL = 1.0f; // 1 second interval
+   private bool isFullyFrozen = false;
+   private const float FROST_DAMAGE = 0.01f; // 1% damage per tick
+
    public override Vector2 GetInputDirection() => IsStopped ? Vector2.Zero : InputManager.GetDirection();
 
    public override void _Ready()
@@ -40,13 +45,9 @@ public partial class Player : Actor
 	  camera.LimitRight = (int)bottomRightLimit.Position.X;
 	  camera.LimitBottom = (int)bottomRightLimit.Position.Y;
 
-	  // Setup frost overlay properties
+	  // Simple frost overlay setup
 	  FrostOverlay.Modulate = new Color(1, 1, 1, 0);
-	  FrostOverlay.AnchorLeft = 0;
-	  FrostOverlay.AnchorTop = 0;
-	  FrostOverlay.AnchorRight = 1;
-	  FrostOverlay.AnchorBottom = 1;
-	  FrostOverlay.Size = GetViewport().GetVisibleRect().Size;
+	  FrostOverlay.SetAnchorsPreset(Control.LayoutPreset.FullRect, true);  // true to keep margins
 	  FrostOverlay.ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize;
 	  FrostOverlay.StretchMode = TextureRect.StretchModeEnum.KeepAspectCovered;
 	  
@@ -86,6 +87,8 @@ public partial class Player : Actor
    {
 	  float alpha = Mathf.Clamp(coldValue / ColdPoints.MaxValue, 0, 1);
 	  FrostOverlay.Modulate = new Color(1, 1, 1, alpha);
+	  isFullyFrozen = alpha >= 1.0f;
+	  GD.Print($"Frost alpha: {alpha}, Is fully frozen: {isFullyFrozen}, Health: {HealthPoints.CurrentValue}");
    }
 
    public override void _Input(InputEvent @event)
@@ -140,6 +143,24 @@ public partial class Player : Actor
 	  if (Direction.Y != 0)
 	  {
 		 VerticalAction();
+	  }
+   }
+
+   public override void _Process(double delta)
+   {
+	  if (isFullyFrozen)
+	  {
+		 lastDamageTime += (float)delta;
+		 if (lastDamageTime >= DAMAGE_INTERVAL)
+		 {
+			HealthPoints.Apply(-FROST_DAMAGE);
+			GD.Print($"Applied frost damage. Health: {HealthPoints.CurrentValue}");
+			lastDamageTime = 0f;
+		 }
+	  }
+	  else
+	  {
+		 lastDamageTime = 0f;  // Reset timer when not fully frozen
 	  }
    }
 
