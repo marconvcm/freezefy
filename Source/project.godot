@@ -11,9 +11,10 @@ config_version=5
 [application]
 
 config/name="Eclipse Frost"
-run/main_scene="res://Levels/LVL01.tscn"
+run/main_scene="res://UI/StartScreen.tscn"
 config/features=PackedStringArray("4.3", "C#", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://Icon.png"
+config/windows_native_icon="res://Icon.ico"
 
 [display]
 
