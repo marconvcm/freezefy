@@ -26,31 +26,31 @@ public partial class StatPlugin : Node
 
    public bool IsEmpty
    {
-      get
-      {
-         return CurrentValue <= MinValue;
-      }
+	  get
+	  {
+		 return CurrentValue <= MinValue;
+	  }
    }
 
    public float CurrentValue
    {
-      get
-      {
-         return _value;
-      }
-      set
-      {
-         _value = value;
-         EmitSignal(nameof(ValueChanged), _value);
-      }
+	  get
+	  {
+		 return _value;
+	  }
+	  set
+	  {
+		 _value = value;
+		 EmitSignal(nameof(ValueChanged), _value);
+	  }
    }
 
    public float Progress
    {
-      get
-      {
-         return (CurrentValue - MinValue) / (MaxValue - MinValue);
-      }
+	  get
+	  {
+		 return (CurrentValue - MinValue) / (MaxValue - MinValue);
+	  }
    }
 
    [Signal]
@@ -58,51 +58,51 @@ public partial class StatPlugin : Node
 
    public override void _Ready()
    {
-      CurrentValue = DefaultValue;
+	  CurrentValue = DefaultValue;
    }
 
    public StatPlugin Apply(float fraction)
    {
-      CurrentValue = Mathf.Clamp(CurrentValue + (fraction * MaxValue), MinValue, MaxValue);
-      return this;
+	  CurrentValue = Mathf.Clamp(CurrentValue + (fraction * MaxValue), MinValue, MaxValue);
+	  return this;
    }
 
    public StatPlugin Add(float value)
    {
-      CurrentValue = Mathf.Clamp(CurrentValue + value, MinValue, MaxValue);
-      return this;
+	  CurrentValue = Mathf.Clamp(CurrentValue + value, MinValue, MaxValue);
+	  return this;
    }
 
    public StatPlugin Subtract(float value)
    {
-      CurrentValue = Mathf.Clamp(CurrentValue - value, MinValue, MaxValue);
-      return this;
+	  CurrentValue = Mathf.Clamp(CurrentValue - value, MinValue, MaxValue);
+	  return this;
    }
 
    public StatPlugin Set(float value)
    {
-      CurrentValue = Mathf.Clamp(value, MinValue, MaxValue);
-      return this;
+	  CurrentValue = Mathf.Clamp(value, MinValue, MaxValue);
+	  return this;
    }
 
    public StatPlugin Tick(double delta)
    {
-      if (CooldownRate > 0.0f)
-      {
-         Subtract(CooldownRate * (float)delta);
-      }
-      else if (CurrentValue < MaxValue)
-      {
-         Add(RechargeRate * (float)delta);
-      }
-      return this;
+	  if (CooldownRate > 0.0f)
+	  {
+		 Subtract(CooldownRate * (float)delta);
+	  }
+	  else if (CurrentValue < MaxValue)
+	  {
+		 Add(RechargeRate * (float)delta);
+	  }
+	  return this;
    }
 
    public override void _Process(double delta)
    {
-      if (RechargeRate > 0.0f || CooldownRate > 0.0f)
-      {
-         Tick(delta);
-      }
+	  if (RechargeRate > 0.0f || CooldownRate > 0.0f)
+	  {
+		 Tick(delta);
+	  }
    }
 }

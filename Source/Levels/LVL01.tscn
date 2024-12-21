@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dhbfwap526xpy" path="res://Templates/Door.tscn" id="5_rxhip"]
 [ext_resource type="PackedScene" uid="uid://cr1wnh7t7xhss" path="res://Templates/Platform.tscn" id="6_eswjp"]
 [ext_resource type="PackedScene" uid="uid://cqvgux4k0ldw4" path="res://Templates/Binary.tscn" id="6_lld3x"]
-[ext_resource type="AudioStream" uid="uid://dlyiusvhdpjak" path="res://Assets/Music/EclipseFrost_OutsideGameplayMusic.mp3" id="7_ky743"]
+[ext_resource type="AudioStream" uid="uid://bdp0xcq775obv" path="res://Assets/Music/EclipseFrost_OutsideGameplayMusic.mp3" id="7_ky743"]
 [ext_resource type="Texture2D" uid="uid://dg3ounyrbel6i" path="res://Assets/Level Layout/LAYER1.PNG" id="8_m5okb"]
 [ext_resource type="Texture2D" uid="uid://b5yat4f1axjd4" path="res://Assets/Level Layout/LAYER0.PNG" id="8_ni268"]
 [ext_resource type="Texture2D" uid="uid://li3cx0oyblex" path="res://Assets/Level Layout/BASE.PNG" id="9_h5koh"]
