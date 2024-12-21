@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://df1a4gw7ssdu6"]
+
+[ext_resource type="Script" path="res://Templates/EnemySpawn.cs" id="1_1xtsc"]
+
+[node name="EnemySpawn" type="Node2D"]
+position = Vector2(-224, -48)
+script = ExtResource("1_1xtsc")
+playerPath = NodePath("../Player")
+SpawnRate = 5.0

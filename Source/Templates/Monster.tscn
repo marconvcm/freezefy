@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfm8ngttv5i0r"]
+
+[ext_resource type="PackedScene" uid="uid://cxggrcf2dk0sg" path="res://Templates/Minion.tscn" id="1_upldg"]
+[ext_resource type="SpriteFrames" uid="uid://bqu1mfqscfjo5" path="res://Resources/Monster.tres" id="2_7hft6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_od5fv"]
+radius = 14.52
+height = 60.0
+
+[node name="Monster" instance=ExtResource("1_upldg")]
+
+[node name="Shape" parent="." index="1"]
+z_index = 10
+position = Vector2(-1, -30)
+shape = SubResource("CapsuleShape2D_od5fv")
+
+[node name="Sprite" parent="." index="3"]
+position = Vector2(0, -32)
+sprite_frames = ExtResource("2_7hft6")
+animation = &"shoot"
+frame = 3
+frame_progress = 0.961747

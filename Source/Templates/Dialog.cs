@@ -72,7 +72,7 @@ public partial class Dialog : Control
 
    }
 
-   public void Display(string bannerText = null, string message = "", string face = null)
+   public void Display(string bannerText = null, string message = "", string face = null, bool pauseGame = true)
    {
       isInputAllowed = false;
       dialogBanner.Text = bannerText;
@@ -95,7 +95,11 @@ public partial class Dialog : Control
          manFace.Visible = false;
       }
 
-      gameNode.ProcessMode = ProcessModeEnum.Disabled;
+      if(pauseGame) 
+      {
+         gameNode.ProcessMode = ProcessModeEnum.Disabled;
+      }
+      
       timer.Start();
    }
 
@@ -105,7 +109,7 @@ public partial class Dialog : Control
 
       if (fragment.ShowAllLines)
       {
-         Display(fragment.Speaker, fragment.Text, fragment.Speaker);
+         Display(fragment.Speaker, fragment.Text, fragment.Speaker, fragment.PauseGame);
       }
       else
       {

@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://78qfhkuup75a"]
+[gd_scene load_steps=6 format=3 uid="uid://78qfhkuup75a"]
 
 [ext_resource type="StyleBox" uid="uid://bs3fjx8nkjdff" path="res://Resources/DialogStyleBox.tres" id="1_3ef1k"]
 [ext_resource type="Script" path="res://Templates/Dialog.cs" id="1_oet44"]
 [ext_resource type="FontFile" uid="uid://ckqc7x0hexwcg" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono-Bold.ttf" id="3_rp7sp"]
-[ext_resource type="Texture2D" uid="uid://uon1xq4avgc4" path="res://Assets/nuface2.png" id="4_oxwgm"]
 [ext_resource type="FontFile" uid="uid://5vd516g30iwy" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono8.ttf" id="4_qcsaf"]
 [ext_resource type="Texture2D" uid="uid://cw42whoy60iv3" path="res://Assets/heroface1.png" id="5_tsyne"]
 
@@ -17,16 +16,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oet44")
 
+[node name="PhoebeFace" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 355.0
+offset_top = 101.0
+offset_right = 620.0
+offset_bottom = 366.0
+texture = ExtResource("5_tsyne")
+expand_mode = 1
+flip_h = true
+
 [node name="PanelBanner" type="PanelContainer" parent="."]
 layout_mode = 2
 offset_left = 20.0
 offset_top = 295.0
-offset_right = 160.0
+offset_right = 150.0
 offset_bottom = 331.0
 theme_override_styles/panel = ExtResource("1_3ef1k")
 
 [node name="DialogBanner" type="Label" parent="PanelBanner"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_rp7sp")
 theme_override_font_sizes/font_size = 16
@@ -41,20 +49,12 @@ offset_bottom = 460.0
 theme_override_styles/panel = ExtResource("1_3ef1k")
 
 [node name="DialogText" type="Label" parent="PanelText"]
+custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("3_rp7sp")
 text = "What... where am I?"
 autowrap_mode = 3
-
-[node name="PhoebeFace" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 372.0
-offset_top = 101.0
-offset_right = 637.0
-offset_bottom = 366.0
-texture = ExtResource("4_oxwgm")
-expand_mode = 1
 
 [node name="CatFace" type="TextureRect" parent="."]
 visible = false
@@ -65,12 +65,14 @@ offset_right = 642.0
 offset_bottom = 260.0
 
 [node name="ManFace" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
-offset_left = 4.0
+offset_left = 375.0
 offset_top = 107.0
-offset_right = 260.0
+offset_right = 631.0
 offset_bottom = 363.0
 texture = ExtResource("5_tsyne")
+flip_h = true
 
 [node name="Space Hint" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0.54902)

@@ -31,7 +31,6 @@ public partial class Minion : Actor
    {
       if (Player != null && Player.IsAlive)
       {
-
          Vector2 directionToPlayer = Player.GlobalPosition - GlobalPosition;
          if (directionToPlayer.Length() <= AttackRange)
          {
@@ -55,7 +54,7 @@ public partial class Minion : Actor
 
       Vector2 directionToPlayer = Player.GlobalPosition - GlobalPosition;
 
-      if (IsOnWall() && IsJumpAvailable)
+      if (IsOnWall() && IsJumpAvailable && directionToPlayer.Length() > AttackRange)
       {
          Jump();
       }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwn8dmb3sa17j"]
+[gd_scene load_steps=24 format=3 uid="uid://dwn8dmb3sa17j"]
 
 [ext_resource type="PackedScene" uid="uid://bkv5nljjr0t6v" path="res://Templates/Actor.tscn" id="1_mivhe"]
 [ext_resource type="Script" path="res://Templates/Player.cs" id="2_wbjk8"]
@@ -8,10 +8,14 @@
 [ext_resource type="Script" path="res://Common/Plugins/TweenPluginResource.cs" id="4_mlpj1"]
 [ext_resource type="PackedScene" uid="uid://dbaml7ellw637" path="res://UI/HUD.tscn" id="4_rex26"]
 [ext_resource type="Script" path="res://Common/Plugins/StatPlugin.cs" id="5_avhbo"]
+[ext_resource type="Script" path="res://Common/FadeOutPlugin.cs" id="5_m02my"]
 [ext_resource type="Script" path="res://Common/Plugins/StatProgressBarPlugin.cs" id="6_g7b44"]
 [ext_resource type="Script" path="res://Common/Plugins/FlashPlugin.cs" id="7_5fudv"]
 [ext_resource type="AudioStream" uid="uid://coh637vclaoyf" path="res://Assets/SFX/coin-pickup-98269.mp3" id="8_2wdc5"]
 [ext_resource type="Material" uid="uid://dkvtiny5atrrj" path="res://Assets/Effects/green_flash_material.tres" id="8_66e1v"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qba7t"]
+size = Vector2(640, 480)
 
 [sub_resource type="Resource" id="Resource_ltout"]
 script = ExtResource("4_mlpj1")
@@ -60,6 +64,7 @@ HealthFlashPlugin = NodePath("Plugins/HealthFlashPlugin")
 FrostOverlay = NodePath("UILayer/FrostOverlay")
 FireCost = 10.0
 DashCost = 20.0
+DJumpCost = 20.0
 BulletSpeedScale = 1.05
 
 [node name="UILayer" type="CanvasLayer" parent="." index="0"]
@@ -72,6 +77,17 @@ texture = ExtResource("3_ufqwv")
 [node name="HUD" parent="UILayer" index="1" node_paths=PackedStringArray("HealthPoints", "SkillPoints") instance=ExtResource("4_rex26")]
 HealthPoints = NodePath("../../Plugins/HPPlugin")
 SkillPoints = NodePath("../../Plugins/SPPlugin")
+
+[node name="FadeOutPlugin" type="Node" parent="UILayer" index="2" node_paths=PackedStringArray("Overlay")]
+script = ExtResource("5_m02my")
+Overlay = NodePath("Overlay")
+
+[node name="Overlay" type="TextureRect" parent="UILayer/FadeOutPlugin" index="0"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_qba7t")
 
 [node name="SPPlugin" parent="Plugins" index="2"]
 RechargeRate = 10.0
@@ -109,7 +125,7 @@ texture_scale = 2.0
 
 [node name="Sprite" parent="." index="4"]
 position = Vector2(0, -32)
-animation = &"run"
+animation = &"death"
 autoplay = "attack"
 
 [node name="Camera" type="Camera2D" parent="." index="5"]

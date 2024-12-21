@@ -30,6 +30,9 @@ public partial class Actor : CharacterBody2D
 	public float DashCost { get; set; }
 
 	[Export]
+	public float DJumpCost { get; set; } = 0.0f;
+
+	[Export]
 	public float KnockbackForce { get; set; } = 80.0f;
 
 	[Export]
@@ -87,6 +90,8 @@ public partial class Actor : CharacterBody2D
 
 	[Export]
 	public float BulletLifeSpanScale { get; set; } = 1f;
+
+	public virtual bool IsAutoDestroy() => true;
 
 	public float Gravity { get { return GRAVITY * GravityScale; } }
 
@@ -161,6 +166,9 @@ public partial class Actor : CharacterBody2D
 	[Signal]
 	public delegate void OnHitEventHandler(Actor targetActor);
 
+	[Signal]
+	public delegate void OnDiedEventHandler();
+
 	public override void _Ready()
 	{
 		AttackPosition = attackSprite.Position;
@@ -179,9 +187,10 @@ public partial class Actor : CharacterBody2D
 	public void Jump()
 	{
 		JumpCount++;
-		if (JumpCount >= JumpMax) { return; }
+		if (JumpCount >= JumpMax || SkillPoints.CurrentValue < DJumpCost) { return; }
 		ToggleLadder(false);
 		Velocity = new Vector2(Velocity.X, -JumpSpeed);
+		SkillPoints.Subtract(DJumpCost);
 	}
 
 	public void Dash()
@@ -259,6 +268,7 @@ public partial class Actor : CharacterBody2D
 			sprite.Stop();
 			sprite.Animation = CurrentState.Animation;
 			sprite.Frame = CurrentState.KeepAtFrame;
+			
 		}
 		else
 		{
@@ -285,7 +295,7 @@ public partial class Actor : CharacterBody2D
 		}
 	}
 
-	private void UpdateState()
+	public virtual void UpdateState()
 	{
 		LastState = CurrentState;
 
@@ -402,7 +412,12 @@ public partial class Actor : CharacterBody2D
 	{
 		if (HealthPoints.IsEmpty)
 		{
-			QueueFree();
+			EmitSignal(nameof(OnDied));
+			if (IsAutoDestroy())
+			{
+				QueueFree();
+			}
+
 		}
 	}
 

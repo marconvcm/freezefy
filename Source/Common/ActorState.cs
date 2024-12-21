@@ -16,14 +16,17 @@ public struct ActorState
 
    public static readonly ActorState Shooting = new ActorState { Animation = "attack" };
 
-   public static readonly ActorState Dashing = new ActorState { Animation = "dash", KeepAtFrame = 1};
+   public static readonly ActorState Dashing = new ActorState { Animation = "dash", KeepAtFrame = 1 };
+
+   public static readonly ActorState Death = new ActorState { Animation = "death", KeepAtFrame = 5, PlayOnce = true };
 
    public string Animation = "idle";
 
    public int KeepAtFrame = -1;
 
-   public ActorState() { }
+   public bool PlayOnce = false;
 
+   public ActorState() { }
 
    public bool IsDashing() => Animation == Dashing.Animation && KeepAtFrame == Dashing.KeepAtFrame;
 
@@ -34,4 +37,6 @@ public struct ActorState
    public bool IsIdle() => Animation == Idle.Animation;
 
    public bool IsFalling() => Animation == Falling.Animation && KeepAtFrame == Falling.KeepAtFrame;
+
+   public bool IsDeath() => Animation == Death.Animation;
 }

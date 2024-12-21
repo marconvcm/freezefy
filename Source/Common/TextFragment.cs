@@ -13,7 +13,7 @@ public partial class TextFragment : Resource
    [Export(PropertyHint.MultilineText)]
    public string Text { get; set; }
 
-   [Export(PropertyHint.EnumSuggestion, "Phoebe,Cat,Louie")]
+   [Export(PropertyHint.EnumSuggestion, "Forgotten")]
    public string Speaker { get; set; }
 
    [Export]
@@ -21,6 +21,9 @@ public partial class TextFragment : Resource
 
    [Export]
    public float TypingSpeed { get; set; } = 1f;
+
+   [Export]
+   public bool PauseGame { get; set; } = true;
 
    public Line? GetNextLine()
    {

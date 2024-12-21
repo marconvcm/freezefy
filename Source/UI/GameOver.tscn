@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://sypk4eiu6wd7"]
+
+[ext_resource type="Script" path="res://UI/GameOver.cs" id="1_1jtvn"]
+[ext_resource type="FontFile" uid="uid://5vd516g30iwy" path="res://Assets/Fonts/pixel_operator/PixelOperatorMono8.ttf" id="1_4k0cl"]
+[ext_resource type="Script" path="res://Common/FadeOutPlugin.cs" id="2_jp6u4"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6ut4c"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0g40n"]
+size = Vector2(640, 480)
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1jtvn")
+
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 480.0
+texture = SubResource("PlaceholderTexture2D_6ut4c")
+
+[node name="Game Over" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -150.0
+offset_right = 234.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_4k0cl")
+theme_override_font_sizes/font_size = 32
+text = "YOU DIED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FadeOutPlugin" type="Node" parent="." node_paths=PackedStringArray("Overlay")]
+script = ExtResource("2_jp6u4")
+Overlay = NodePath("Overlay")
+
+[node name="Overlay" type="TextureRect" parent="FadeOutPlugin"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("PlaceholderTexture2D_0g40n")

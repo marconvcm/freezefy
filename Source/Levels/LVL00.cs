@@ -17,7 +17,7 @@ public partial class LVL00 : Node2D
    {
       var enemy = mushroomScene.Instantiate<Minion>();
       
-      enemy.Position = GetLocalMousePosition();
+      enemy.GlobalPosition = GlobalPosition;
       enemy.PlayerPath = GetNode<Player>("Player").GetPath();
       enemy.IsFireAvailable = false;
       AddChild(enemy);

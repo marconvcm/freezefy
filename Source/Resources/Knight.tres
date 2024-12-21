@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=21 format=3 uid="uid://djs8tgkx8bsww"]
+[gd_resource type="SpriteFrames" load_steps=27 format=3 uid="uid://djs8tgkx8bsww"]
 
 [ext_resource type="Texture2D" uid="uid://chferwi1ngmug" path="res://Assets/Player/char2_sword1.png" id="1_re7cm"]
 [ext_resource type="Texture2D" uid="uid://d0ymyi3dmgq7w" path="res://Assets/Player/char2_sword2.png" id="2_i2els"]
@@ -10,12 +10,18 @@
 [ext_resource type="Texture2D" uid="uid://7h4wuoiefxw6" path="res://Assets/Player/char2_idle3.png" id="7_4l16e"]
 [ext_resource type="Texture2D" uid="uid://b70ypakwpqghb" path="res://Assets/Player/char_dash2.png" id="7_kqqub"]
 [ext_resource type="Texture2D" uid="uid://btjvxrhh0ss44" path="res://Assets/Player/char2_idle4.png" id="8_gdnsv"]
+[ext_resource type="Texture2D" uid="uid://pxj321vlda1d" path="res://Assets/Player/char_Death0.png" id="8_isbog"]
+[ext_resource type="Texture2D" uid="uid://b5hoi5or1uxg2" path="res://Assets/Player/char_Death1.png" id="9_pu52c"]
 [ext_resource type="Texture2D" uid="uid://dcojgx7m7ifu" path="res://Assets/Player/char2_jmpf1.png" id="9_uhx32"]
+[ext_resource type="Texture2D" uid="uid://d38p7k6euf2ms" path="res://Assets/Player/char_Death2.png" id="10_bfb3p"]
 [ext_resource type="Texture2D" uid="uid://b1hetolsii8tk" path="res://Assets/Player/char2_jmpf2.png" id="10_ks6hm"]
+[ext_resource type="Texture2D" uid="uid://maunddcxclxe" path="res://Assets/Player/char_Death3.png" id="11_6nsst"]
 [ext_resource type="Texture2D" uid="uid://dk13n31cfxoqt" path="res://Assets/Player/char_run1.png" id="11_ys44d"]
+[ext_resource type="Texture2D" uid="uid://4gaw0qikfunc" path="res://Assets/Player/char_Death4.png" id="12_1ljqc"]
 [ext_resource type="Texture2D" uid="uid://dg2ewhcbmvlin" path="res://Assets/Player/char_run2.png" id="12_1tp3w"]
 [ext_resource type="Texture2D" uid="uid://bm0uyf7jlx1yp" path="res://Assets/Player/char2_djump1.png" id="12_6t5bw"]
 [ext_resource type="Texture2D" uid="uid://dw7c42m83oxb1" path="res://Assets/Player/char_run3.png" id="13_2o2xi"]
+[ext_resource type="Texture2D" uid="uid://cxax62kuo1hj6" path="res://Assets/Player/char_Death5.png" id="13_lw78x"]
 [ext_resource type="Texture2D" uid="uid://bjp83x1drdoo4" path="res://Assets/Player/char_run4.png" id="14_coxj6"]
 [ext_resource type="Texture2D" uid="uid://c7uw1rjwomgy4" path="res://Assets/Player/char_run5.png" id="15_fq0m6"]
 [ext_resource type="Texture2D" uid="uid://cdqtbprv2uskn" path="res://Assets/Player/char_shoot3.png" id="18_pvcsm"]
@@ -53,6 +59,29 @@ animations = [{
 "loop": true,
 "name": &"dash",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_isbog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_pu52c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bfb3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_6nsst")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1ljqc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lw78x")
+}],
+"loop": true,
+"name": &"death",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,

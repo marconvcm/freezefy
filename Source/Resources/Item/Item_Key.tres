@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="UsableResource" load_steps=3 format=3 uid="uid://dnnuo4kqwyym5"]
+
+[ext_resource type="Texture2D" uid="uid://dcciay4q10jpr" path="res://Assets/3th Party/Keys_Icons/01.png" id="1_ne0br"]
+[ext_resource type="Script" path="res://Common/UsableResource.cs" id="1_xm2u7"]
+
+[resource]
+script = ExtResource("1_xm2u7")
+Collectable = true
+Label = "Key"
+Description = ""
+Icon = ExtResource("1_ne0br")
