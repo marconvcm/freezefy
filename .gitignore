@@ -1,2 +1,6 @@
 .DS_Store
 *.zip
+Export/macOS/EclipseFrost.dmg
+Export/win64/EclipseFrost.exe
+Export/win64/EclipseFrost.pck
+Export/.DS_Store
